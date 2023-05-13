@@ -1,5 +1,5 @@
 /*
-Aqui estou trabalhando num projeto que mostre as possíveis tipagens sanguíneas==
+Aqui estou trabalhando num projeto que mostre as possíveis tipagens sanguíneas.
 */
 
 #include <stdio.h>
