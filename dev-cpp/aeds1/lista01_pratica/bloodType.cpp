@@ -8,9 +8,9 @@ using namespace std;
 
 int main() {
     
-    char filho, fatorRH tipoSangueMae, tipoSanguePai;
+    char tipoSangue, fatorRH, tipoSangueMae, tipoSanguePai;
 
-    printf("Digite a tipagem sanguínea do pai: ");
+    printf("Digite a tipagem sanguínea do tipoSanguePai: ");
     scanf(" %c", &tipoSanguePai);
 
     printf("Digite a tipagem sanguínea da mãe: ");
@@ -19,74 +19,74 @@ int main() {
     // estruturas condicionais
 
     // linha 01: mãe A
-    if (mae == 'a' && pai == 'a'){
+    if (tipoSangueMae == 'a' && tipoSanguePai == 'a'){
         tipoSangue = 'a' || tipoSangue = 'b';
     }
-    if (mae == 'a' && pai == 'b'){
-        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = "c" || tipoSangue = 'o';
+    if (tipoSangueMae == 'a' && tipoSanguePai == 'b'){
+        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = 'c' || tipoSangue = 'o';
     }
-    if (mae == 'a' && pai == "c"){
-        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = "c";
+    if (tipoSangueMae == 'a' && tipoSanguePai == 'c'){
+        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = 'c';
     }
-    if (mae == 'a' && pai == 'o'){
+    if (tipoSangueMae == 'a' && tipoSanguePai == 'o'){
         tipoSangue = 'a' || tipoSangue = 'o';
     }
 
 
     // linha 02: mãe B
-    if (mae == 'b' && pai == 'a'){
-        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = "c" || tipoSangue = 'o';
+    if (tipoSangueMae == 'b' && tipoSanguePai == 'a'){
+        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = 'c' || tipoSangue = 'o';
     }
-    if (mae == 'b' && pai == 'b'){
+    if (tipoSangueMae == 'b' && tipoSanguePai == 'b'){
         tipoSangue = 'b' || tipoSangue = 'o';
     }
-    if (mae == 'b' && pai == "c"){
-        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = "o";
+    if (tipoSangueMae == 'b' && tipoSanguePai == 'c'){
+        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = 'o';
     }
-    if (mae == 'b' && pai == 'o'){
+    if (tipoSangueMae == 'b' && tipoSanguePai == 'o'){
         tipoSangue = 'b' || tipoSangue = 'o';
     }
 
     // linha 03: mãe AB - obs: chamei de ab = c pois ainda não sei lidar com variáveis do tipo string
-    if (mae == "c" && pai == 'a'){
-        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = "c" || tipoSangue = 'o';
+    if (tipoSangueMae == 'c' && tipoSanguePai == 'a'){
+        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = 'c' || tipoSangue = 'o';
     }
-    if (mae == "c" && pai == 'b'){
+    if (tipoSangueMae == 'c' && tipoSanguePai == 'b'){
         tipoSangue = 'b' || tipoSangue = 'o';
     }
-    if (mae == "c" && pai == "c"){
-        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = "o";
+    if (tipoSangueMae == 'c' && tipoSanguePai == 'c'){
+        tipoSangue = 'a' || tipoSangue = 'b' || tipoSangue = 'o';
     }
-    if (mae == "c" && pai == 'o'){
+    if (tipoSangueMae == 'c' && tipoSanguePai == 'o'){
         tipoSangue = 'b' || tipoSangue = 'o';
     }
 
     // linha 04: mãe O
-    if (mae == 'o' && pai == 'a'){
+    if (tipoSangueMae == 'o' && tipoSanguePai == 'a'){
         tipoSangue = 'a' || tipoSangue = 'o';
     }
-    if (mae == 'o' && pai == 'b'){
+    if (tipoSangueMae == 'o' && tipoSanguePai == 'b'){
         tipoSangue = 'b' || tipoSangue = 'o';
     }
-    if (mae == 'o' && pai == "c"){
+    if (tipoSangueMae == 'o' && tipoSanguePai == 'c'){
         tipoSangue = 'a' || tipoSangue = 'b';
     }
-    if (mae == 'o' && pai == 'o'){
+    if (tipoSangueMae == 'o' && tipoSanguePai == 'o'){
         tipoSangue = 'o';
     }
 
     // Positivo ou Negativo?
-    if (mae == "p" && pai == "p"){
-        tipoSangue = "p";
+    if (tipoSangueMae == 'p' && tipoSanguePai == 'p'){
+        tipoSangue = 'p';
     }
-    if (mae == "p" && pai == "n"){
-        tipoSangue = "p" || tipoSangue = "n";
+    if (tipoSangueMae == 'p' && tipoSanguePai == 'n'){
+        tipoSangue = 'p' || tipoSangue = 'n';
     }
-    if (mae == "n" && pai == "p"){
-        tipoSangue = "p" || tipoSangue = "n";
+    if (tipoSangueMae == 'n' && tipoSanguePai == 'p'){
+        tipoSangue = 'p' || tipoSangue = 'n';
     }
-    if (mae == "n" && pai == "n"){
-        tipoSangue = "n";
+    if (tipoSangueMae == 'n' && tipoSanguePai == 'n'){
+        tipoSangue = 'n';
     }
     
     printf("\n\t A(s) tipagem sanguínea possível é/são: %c \n", tipoSangue);
