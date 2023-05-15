@@ -1,24 +1,24 @@
-filho(A) ; filho(O)                        :- mae(A), pai(A).
-filho(A) ; filho(B) ; filho(AB) ; filho(O) :- mae(A), pai(B).
-filho(A) ; filho(B) ; filho(AB)            :- mae(A), pai(AB).
-filho(A) ; filho(O)                        :- mae(A), pai(O).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, O)                        					:- tipoSanguineo(mae, A), tipoSanguineo(pai, A).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB) ; tipoSanguineo(filho, O) 	:- tipoSanguineo(mae, A), tipoSanguineo(pai, B).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB)            			:- tipoSanguineo(mae, A), tipoSanguineo(pai, AB).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, O)                        					:- tipoSanguineo(mae, A), tipoSanguineo(pai, O).
 
-filho(A) ; filho(B) ; filho(AB) ; filho(O) :- mae(B), pai(A).
-filho(B) ; filho(O)                        :- mae(B), pai(B).
-filho(A) ; filho(B) ; filho(AB)            :- mae(B), pai(AB).
-filho(B) ; filho(O)                        :- mae(B), pai(O).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB) ; tipoSanguineo(filho, O) 	:- tipoSanguineo(mae, B), tipoSanguineo(pai, A).
+tipoSanguineo(filho, B) ; tipoSanguineo(filho, O)                        					:- tipoSanguineo(mae, B), tipoSanguineo(pai, B).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB)            			:- tipoSanguineo(mae, B), tipoSanguineo(pai, AB).
+tipoSanguineo(filho, B) ; tipoSanguineo(filho, O)                        					:- tipoSanguineo(mae, B), tipoSanguineo(pai, O).
 
-filho(A) ; filho(B) ; filho(AB)            :- mae(AB), pai(A).
-filho(A) ; filho(B) ; filho(AB)            :- mae(AB), pai(B).
-filho(A) ; filho(B) ; filho(AB)            :- mae(AB), pai(AB).
-filho(A) ; filho(B)                        :- mae(AB), pai(O).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB)            			:- tipoSanguineo(mae, AB), tipoSanguineo(pai, A).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB)            			:- tipoSanguineo(mae, AB), tipoSanguineo(pai, B).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B) ; tipoSanguineo(filho, AB)            			:- tipoSanguineo(mae, AB), tipoSanguineo(pai, AB).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B)                        					:- tipoSanguineo(mae, AB), tipoSanguineo(pai, O).
 
-filho(A) ; filho(O)                        :- mae(O), pai(A).
-filho(B) ; filho(O)                        :- mae(O), pai(B).
-filho(A) ; filho(B)                        :- mae(O), pai(AB).
-filho(O)                                   :- mae(O), pai(O).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, O)                        					:- tipoSanguineo(mae, O), tipoSanguineo(pai, A).
+tipoSanguineo(filho, B) ; tipoSanguineo(filho, O)                        					:- tipoSanguineo(mae, O), tipoSanguineo(pai, B).
+tipoSanguineo(filho, A) ; tipoSanguineo(filho, B)                        					:- tipoSanguineo(mae, O), tipoSanguineo(pai, AB).
+tipoSanguineo(filho, O)                                   							:- tipoSanguineo(mae, O), tipoSanguineo(pai, O).
 
-filho(positivo)                            :- mae(positivo), pai(positivo).
-filho(positivo) ; filho(negativo)          :- mae(positivo), pai(negativo).
-filho(positivo) ; filho(negativo)          :- mae(negativo), pai(positivo).
-filho(negativo)                            :- mae(negativo), pai(negativo).
+tipoRh(filho, rhPositivo)                            							:- tipoRh(mae, rhPositivo), tipoRh(pai, rhPositivo).
+tipoRh(filho, rhPositivo) ; tipoRh(filho, rhNegativo)          						:- tipoRh(mae, rhPositivo), tipoRh(pai, rhNegativo).
+tipoRh(filho, rhPositivo) ; tipoRh(filho, rhNegativo)          						:- tipoRh(mae, rhNegativo), tipoRh(pai, rhPositivo).
+tipoRh(filho, rhNegativo)                            							:- tipoRh(mae, rhNegativo), tipoRh(pai, rhNegativo).
