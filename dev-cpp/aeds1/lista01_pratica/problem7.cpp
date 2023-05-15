@@ -9,25 +9,21 @@ segundos.
 #include <stdio.h>
 #include <math.h>
 
-using namespace std;
-
 int main() {
-
     float massaInicial, massaFinal, tempoMeiaVida, tempo;
 
-    tempoMeiaVida = 50;
-    massaInicial = 1000;
-    tempo = 0;
+    printf("\n\t Informe a massa inicial do elemento radioativo: ");
+    scanf("%f", &massaInicial);
 
-    while (massaFinal >= 0.5){
-      massaFinal = massaInicial/2.0;
-      tempo += tempoMeiaVida;
-    }
+    printf("\n\t Informe a massa final: ");
+    scanf("%f", &massaFinal);
 
-    tempo = log(massaFinal/massaInicial);
+    printf("\n\t Informe a meia-vida do elemento radioativo: ");
+    scanf("%f", &tempoMeiaVida);
 
-    printf("\n\t -- Resultado -- \n");
-    printf("\n\t O tempo de decaimento é: %.2f segundos \n", tempo);
+    tempo = (tempoMeiaVida * log(massaInicial / massaFinal)) / log(2.0);
+
+    printf("\n\t\t Tempo necessário para atingir a massa final: %.2f unidades de tempo \n\n", tempo);
 
     return 0;
 }
