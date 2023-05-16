@@ -11,46 +11,56 @@ possuem pressão arterial acima de 14 para a máxima ou acima de 10
 para a mínima.
 */
 
-#include <stdio.h> // bibliotecas necessárias
+#include <stdio.h>
+
+using namespace std;
 
 int main() {
-    
-    int contador, teto, qtdPessoasPressaoAlta, pcPessoasPressaoAlta, idade, pressaoArterialMax, pressaoArterialMin, qtdPessoas;
-    char tipoSanguineo, fatorRH;
 
-    // iniciar variaveis que acumulam valores (atualizadas)
-    contador = 1;
-    teto = 3;
+    int pcPessoasPressaoAlta, qtdPessoasPressaoAlta, qtdPessoas, pressaoArterialSistolica, pressaoArterialDiastolica, idade;
+    char tipoSanguineo, tipoRh;
+
+    qtdPessoas = 0;
     qtdPessoasPressaoAlta = 0;
-    qtdPessoas = teto;
 
-    // estruturas de repeticao
-    while (contador <= teto){
+    while (qtdPessoas <= 2){
 
-      printf("\n Digite a idade [18 < idade < 130]: ");
+      printf("\n Digite a idade: ");
       scanf(" %d", &idade);
+      while(idade < 18 || idade > 130){
+        printf("\n Há algo errado! Tente de novo. \n");
+        printf("\n Digite a idade: ");
+        scanf(" %d", &idade);
+      }
 
-      printf("\n Digite o tipo sanguíneo ['o', 'a', 'b' ou 'c'] _ ['p' ou 'n']: "); // ab = c
-                                                                                    // porque ainda não sei lidar com strings
-      scanf(" %c %c", &tipoSanguineo, &fatorRH);
+      printf("\n Digite o tipo sanguíneo ('a', 'b', 'c', 'o')_('p','n'): "); // c = ab porque ainda não sei lidar com strings
+      scanf(" %c %c", &tipoSanguineo, &tipoRh);
+      while((tipoSanguineo != 'a' || tipoSanguineo != 'b' || tipoSanguineo != 'c' || tipoSanguineo != 'o') && (tipoRh != 'p' || tipoRh != 'n')){
+        printf("\n Há algo errado! Tente de novo. \n");
+        printf("\n Digite o tipo sanguíneo ('a', 'b', 'c', 'o')_('p','n'): ");
+        scanf(" %c %c", &tipoSanguineo, &tipoRh);
+      }
       
-      printf("\n Digite a pressão arterial [(7 < max < 25) (2 < min < 20)]: ");
-      scanf(" %d %d", &pressaoArterialMax, &pressaoArterialMin);
+      printf("\n Digite a pressão arterial Sistólica_Diastólica: ");
+      scanf(" %d %d", &pressaoArterialSistolica, &pressaoArterialDiastolica);
+      while((pressaoArterialSistolica < 7 || pressaoArterialSistolica > 25) && (pressaoArterialDiastolica < 2 || pressaoArterialDiastolica > 20)){
+        printf("\n Há algo errado! Tente de novo. \n");
+        printf("\n Digite a pressão arterial Sistólica_Diastólica: ");
+        scanf(" %d %d", &pressaoArterialSistolica, &pressaoArterialDiastolica);
+      }
 
-      // estruturas condicionais
-      
-      if ((tipoSanguineo == 'a' || tipoSanguineo == 'a') && (pressaoArterialMax > 14 || pressaoArterialMin > 10)){
-          qtdPessoasPressaoAlta++;
-        }
-    
-    contador++;
+      if ( (tipoSanguineo == 'a' && tipoRh == 'n' || tipoSanguineo == 'b'  && tipoRh == 'n') && (pressaoArterialSistolica > 14 && pressaoArterialDiastolica > 10)){
+        qtdPessoasPressaoAlta++;
+      }
+
+      qtdPessoas++;
     }
-    
-    // resultados
 
     pcPessoasPressaoAlta = (qtdPessoasPressaoAlta/qtdPessoas) * 100;
 
-    printf("\n\t %d %% das pessoas possuem pressão alta. \n\n", pcPessoasPressaoAlta);
+    printf("\n\t -- Resultados -- \n");
+
+    printf("\n\t O percentual é %d %% \n", pcPessoasPressaoAlta);
 
     return 0;
 }
