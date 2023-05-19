@@ -1,32 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int m, n;
-    printf("Digite o valor de m: ");
-    scanf("%d", &m);
-    printf("Digite o valor de n: ");
-    scanf("%d", &n);
-
-    int max_value = 0;
-    int max_x, max_y;
-
     int x = 1;
-    while (x < m) {
-        int y = 1;
-        while (y < n) {
-            int value = x * y - x * x + y;
-            if (value > max_value) {
-                max_value = value;
-                max_x = x;
-                max_y = y;
-            }
-            y++;
-        }
+
+    printf("x\t|\tf(x)\t|\tg(x)\t|\ty\n");
+    printf("--------------------------------------\n");
+
+    while (x <= 10) {
+        int hx = x - 16;
+        int fx, gx;
+
+        if (hx >= 0)
+            fx = hx;
+        else
+            fx = 1;
+
+        if (fx == 0)
+            gx = x + 16;
+        else
+            gx = 0;
+
+        int result = fx + gx;
+
+        printf("%d\t|\t%d\t|\t%d\t|\t%d\n", x, fx, gx, result);
+
         x++;
     }
-
-    printf("O par (x, y) que maximiza a expressão é: (%d, %d)\n", max_x, max_y);
-    printf("O valor máximo encontrado é: %d\n", max_value);
 
     return 0;
 }
