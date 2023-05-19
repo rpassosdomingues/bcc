@@ -20,53 +20,45 @@ using namespace std;
 
 int main(){
 
-  int contador, teto, numNascidos, numMortos, mesesVida, pcMortes, mortesMasc, mortesFem, pcMortesMasc, numVidas24, pcVidas24;
+  int qtdNascidos=0, qtdMortos=0, qtdVidas24=0, qtdMortesMasc=0, qtdMortesFem=0;
+  float mesesVida, pcMortes, pcMortesMasc, pcVidas24;
   char sexo;
 
-  contador = 1;
-  teto = 4;
-  
-  numNascidos = 0;
-  numMortos = 0;
-  numVidas24 = 0;
-  mortesMasc = 0;
-  mortesFem = 0;
-
   printf("\n Digite o número de crianças nascidas: ");
-  scanf(" %d", &numNascidos);
+  scanf(" %d", &qtdNascidos);
 
-  while (contador < teto){
+  while (qtdMortos <= 5){
     
-    printf("\n Menino ou Menina? (m/f): ");
+    printf("\n Digite o sexo (M/F): ");
     scanf(" %c", &sexo);
+      while (sexo != 'M' && sexo != 'm' && sexo != 'F' && sexo != 'f') {
+        printf("\n Há algo errado! Tente de novo. ");
+        scanf(" %c", &sexo);
+      }
 
     printf("\n Quantos meses a criança viveu? ");
-    scanf(" %d", &mesesVida);
-      
-    if (sexo == 'm' && mesesVida <= 24){
-      numMortos++;
-      numVidas24++;
-      mortesMasc++;
-    }
+    scanf(" %f", &mesesVida);
     
-    if (sexo == 'f'){
-      numMortos++;
-      numVidas24++;
-      mortesFem++;
+    if (sexo == 'm'){
+      qtdMortesMasc++;
     }
-    
-    pcMortes = numMortos/numNascidos;
-    pcMortesMasc = mortesMasc/numNascidos;
-    pcVidas24 = numVidas24/numMortos;
 
-    contador = contador + 1;
+    if(mesesVida <= 24){
+      qtdVidas24++;
+    }
+
+    qtdMortos++;
   }
 
-  printf("\n\t -- Resultados -- \n");
+  pcMortes = (float)qtdMortos / qtdNascidos * 100;
+  pcMortesMasc = (float)qtdMortesMasc / qtdNascidos * 100;
+  pcVidas24 = (float)qtdVidas24 / qtdMortos * 100;
 
-  printf("\n\t %d %% de crianças mortas no periodo. \n", pcMortes);
-  printf("\n\t %d %% de meninos mortos no periodo. \n", pcMortesMasc);
-  printf("\n\t %d %% de crianças que viveram até 2 anos no periodo. \n", pcVidas24);
+  printf("\n\t === Resultados === \n");
+
+  printf("\n\t %.2f%% das crianças mortas no periodo. \n", pcMortes);
+  printf("\n\t %.2f%% dos meninos mortos no periodo. \n", pcMortesMasc);
+  printf("\n\t %.2f%% das crianças viveram até 2 anos no periodo. \n\n", pcVidas24);
 
   return 0;
 }
