@@ -17,10 +17,10 @@ using namespace std;
 
 int main() {
 
-    string veiculo, placa;
+    string veiculo, modelo, marca, tipo, combustivel, cambio, direcao, cor, portas, placa, placaBarato, placaCaro, valorCaro, seguroCaro;
+    int ano;
+    float quilometragem, potenciaMotor, valor, pcModelo, pcAutomaticoHidraulica;
     ifstream teclado ("BD_veiculos.txt");
-    
-    float ;
 
     // acumuladoras
 
@@ -52,9 +52,7 @@ int main() {
     teclado.close();
 
     /*
-    printf("\n > %.2f%% na categoria x \n", pcCategoriaX);
-    printf("\n > %.2f%% na categoria y \n", pcCategoriaY);
-    printf("\n > %.2f%% na categoria z \n", pcCategoriaZ);
+    printf("\n > %.2f%% na categoria x \n", pcModelo);
 
     printf("\n\t >> %.2f%% possuem câmbio automático e direção hidráulica \n", pcAutomaticoHidraulica);
     
