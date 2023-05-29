@@ -1,13 +1,6 @@
-// Projeto: Estatística em Base de Dados de Veículos
-// Rafael Passos Domingues
-
-/*
-O aplicativo desenvolvido no projeto deve ler os dados de um arquivo-texto em variáveis simples e atualizar outras variáveis
-de forma que no final responder as informações solicitadas nos requisitos.
-Cada linha do arquivo de entrada tem informações de apenas um veículo, conforme o modelo apresentado no arquivo-texto
-de exemplo “BD_veiculos.txt”.
-A última linha, que não fará parte dos  cálculos, terá no nome do veículo a palavra “FIM”.
-Após o final de leitura do arquivo, o projeto deve apresentar de forma clara as informações solicitadas nos requisitos abaixo.
+/* Projeto: Estatística em Base de Dados de Veículos
+ * Rafael Passos Domingues
+ * Escrito em 29 de Maio de 2023
 */
 
 #include <math.h>
