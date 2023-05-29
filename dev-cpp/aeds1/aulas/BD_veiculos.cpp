@@ -42,6 +42,8 @@ int main() {
       return 1;
     }
 
+    //teclado >> veiculo;
+
     // Loop para ler e processar cada linha do arquivo
     while (strcmp(teclado, "fim") == 1) {
         scanf(teclado, "%s %s %d %d %f %s %s %s %s %f %s",
@@ -54,7 +56,7 @@ int main() {
             qtdHatch++;
         } else if (strcmp(tipo, "SUV") == 0) {
             qtdSUV++;
-        } else if (strcmp(tipo, "Seda") == 0) {
+        } else if (strcmp(tipo, "Sedan") == 0) {
             qtdSeda++;
         } else if (strcmp(tipo, "Pick-up") == 0) {
             qtdPickup++;
@@ -75,6 +77,10 @@ int main() {
             if (veiculosPotencia1 == 0 || preco < precoMinimo1) {
                 precoMinimo1 = preco;
                 strcpy(placaMinima1, placa);
+                // Calcular o valor da prestação do financiamento
+                float taxaJuros = 0.8;
+                int numParcelas = 48;
+                float prestacao = (preco * taxaJuros) / (1 - pow(1 + taxaJuros, -numParcelas));
             }
             veiculosPotencia1++;
         }
@@ -85,6 +91,8 @@ int main() {
             if (veiculos5AnosMais == 0 || preco > precoMaximo) {
                 precoMaximo = preco;
                 strcpy(placaMaxima, placa);
+                // Calcular o seguro estimado (10% do valor do veículo)
+                seguroEstimado = precoMaximo * 0.1;
             }
             veiculos5AnosMais++;
         }
@@ -96,6 +104,8 @@ int main() {
 
         totalVeiculos++;
     }
+    // Fechar o arquivo
+    teclado.close();
 
     // Calcular as porcentagens
     float percentualHatch   = (float) (qtdHatch / totalVeiculos) * 100;
@@ -106,39 +116,6 @@ int main() {
     float percentualPasseio = (float) (qtdPasseio / totalVeiculos) * 100;
 
     float percentualAutoHidraulica = (float) (veiculosAutoHidraulica / totalVeiculos) * 100;
-
-    // Calcular o valor da prestação do financiamento
-    float taxaJurosHatch = 0.8;
-    int numParcelasHatch = 48;
-    float prestacaoHatch = (valorHatch * taxaJurosHatch) / (1 - pow(1 + taxaJurosHatch, -numParcelasHatch));
-
-    float taxaJurosSUV = 0.8;
-    int numParcelasSUV = 48;
-    float prestacaoSUV = (valorSUV * taxaJurosSUV) / (1 - pow(1 + taxaJurosSUV, -numParcelasSUV));
-
-    float taxaJurosSedan = 0.8;
-    int numParcelasSedan = 48;
-    float prestacaoSedan = (valorSedan * taxaJurosSedan) / (1 - pow(1 + taxaJurosSedan, -numParcelasSedan));
-
-    float taxaJurosPickup = 0.8;
-    int numParcelasPickup = 48;
-    float prestacaoPickup = (valorPickup * taxaJurosPickup) / (1 - pow(1 + taxaJurosPickup, -numParcelasPickup));
-
-    float taxaJurosVan = 0.8;
-    int numParcelasVan = 48;
-    float prestacaoVan = (valorVan * taxaJurosVan) / (1 - pow(1 + taxaJurosVan, -numParcelasVan));
-
-    float taxaJurosPasseio = 0.8;
-    int numParcelasPasseio = 48;
-    float prestacaoPasseio = (valorPasseio * taxaJurosPasseio) / (1 - pow(1 + taxaJurosPasseio, -numParcelasPasseio));
-
-    // Calcular o seguro estimado (10% do valor do veículo)
-    seguroEstimadoHatch   = precoMaximoHatch   * 0.1;
-    seguroEstimadoSUV     = precoMaximoSUV     * 0.1;
-    seguroEstimadoSedan   = precoMaximoSedan   * 0.1;
-    seguroEstimadoPickup  = precoMaximoPickup  * 0.1;
-    seguroEstimadoVan     = precoMaximoVan     * 0.1;
-    seguroEstimadoPasseio = precoMaximoPasseio * 0.1;
 
     // Calcular a média de quilometragem dos veículos com 5 anos ou mais
     float mediaKM5AnosMais = (float)somaKM5AnosMais / veiculos5AnosMais;
@@ -157,7 +134,7 @@ int main() {
     printf("\n Placa e valor do veículo mais barato com potência do motor 1.0: \n");
     printf("\t Placa: %s \n", placaMinima1);
     printf("\t Valor: %.2f \n", precoMinimo1);
-    printf("\t Valor da prestação do financiamento em 48 meses: %.2f \n", prestacaoHatch);
+    printf("\t Valor da prestação do financiamento em 48 meses: %.2f \n", prestacao);
 
     printf("\n Placa e valor do veículo mais caro com direção hidráulica e combustível flex: \n");
     printf("\t Placa: %s \n", placaMaxima);
@@ -167,9 +144,6 @@ int main() {
     printf("\n Quantidade e média de quilometragem dos veículos com 5 anos ou mais: \n");
     printf("\t Quantidade: %d \n", veiculos5AnosMais);
     printf("\t Média de quilometragem: %.2f \n\n", mediaKM5AnosMais);
-
-    // Fechar o arquivo
-    teclado.close();
 
     return 0;
 }
