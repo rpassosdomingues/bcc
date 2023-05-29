@@ -1,31 +1,39 @@
 /*
- * Autor: Rafael Passos Domingues
- * RA: 2023.1.08.036
- * 
- * Criado em 29 de Maio de 2023
- * 
- * Exercício 01: Inverta o vetor
- */
+* Autor: Rafael Passos Domingues
+* RA: 2023.1.08.026
+* Escrito em 29 de Maio de 2023
+*/
 
-#include <cstdlib>
 #include <iostream>
 
 using namespace std;
 
-int main(int argc, char**argv) {
-    
-    float notas[10] = {40, 11, 27, 30, 4, 25, 16, 27, 87, 9};
-    float swap;
-    int i = 0, j = 9;
-    
-    while (i < 5){
-      swap = notas[j];
-      notas[j] = notas[i];
-      notas[i] = swap;
-      i++;
-      j--;
-      cout << notas[i] << endl;
+int main(void) {
+    int vetor[10] = {40, 11, 27, 30, 4, 25, 16, 27, 87, 9};
+    int tamanho = 10;
+    int inicio = 0;
+    int fim = tamanho - 1;
+    int swap;
+
+    cout << "\n vetor original: ";
+    for (int i = 0; i < tamanho; i++) {
+        cout << vetor[i] << " ";
     }
-    
+
+    while (inicio < fim) {
+        swap = vetor[inicio];
+        vetor[inicio] = vetor[fim];
+        vetor[fim] = swap;
+
+        inicio++;
+        fim--;
+    }
+
+    cout << "\n vetor invertido: ";
+    for (int i = 0; i < tamanho; i++) {
+        cout << vetor[i] << " ";
+    }
+    cout << "\n\n";
+
     return 0;
 }
