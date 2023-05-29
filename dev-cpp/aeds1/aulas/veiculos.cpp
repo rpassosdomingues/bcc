@@ -6,39 +6,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Estrutura para armazenar os dados de cada veículo
-typedef struct {
-    char marca[20];
-    char tipo[20];
-    int ano;
-    int quilometragem;
-    float motor;
-    char transmissao[20];
-    char direcao[20];
-    char cor[20];
-    char placa[10];
-    float preco;
-} Veiculo;
-
-// Função para calcular a porcentagem
-float calcularPorcentagem(int valor, int total) {
-    return (float)valor / total * 100;
-}
-
-// Função para obter o valor da prestação do financiamento
-float calcularPrestacao(float valor) {
-    // Cálculo da prestação com taxa de juros atual
-    // Substitua pela taxa de juros real obtida na consulta à internet
-    float taxaJuros = 0.8; // Exemplo: 0.8% ao mês
-    int numParcelas = 48;
-    float prestacao = (valor * taxaJuros) / (1 - pow(1 + taxaJuros, -numParcelas));
-    return prestacao;
-}
+int ano, quilometragem;
+string placa, cor, direcao, trasmissao, tipo, marca;
+float preco, motor;
 
 int main() {
     // Definir o número total de veículos e contadores para as categorias
     int totalVeiculos = 0;
-    int tipoHatch = 0, tipoSUV = 0, tipoSeda = 0, tipoPickup = 0, tipoVan = 0, tipoPasseio = 0;
+    int qtdHatch = 0, qtdSUV = 0, qtdSeda = 0, qtdPickup = 0, qtdVan = 0, qtdPasseio = 0;
     int veiculosAutoHidraulica = 0;
     int veiculosPotencia1 = 0;
     int veiculos5AnosMais = 0;
@@ -48,84 +23,87 @@ int main() {
     float seguroEstimado3 = 0;
 
     // Abrir o arquivo de dados
-    FILE *arquivo = fopen("dados.txt", "r");
-    if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo de dados.\n");
-        return 1;
+    ifstream teclado ("BD_veiculos.txt");
+    if (!teclado.is_open()){
+      cout << "\n Erro: Arquivo não encontrado. \n";
+      return 1;
     }
 
+    teclado >> veiculo;
+    //cout << "veiculo: " << veiculo << endl;
+
     // Loop para ler e processar cada linha do arquivo
-    char linha[200];
-    while (fgets(linha, sizeof(linha), arquivo)) {
-        Veiculo veiculo;
-        sscanf(linha, "%s %s %d %d %f %s %s %s %s %f",
-               veiculo.marca, veiculo.tipo, &veiculo.ano, &veiculo.quilometragem,
-               &veiculo.motor, veiculo.transmissao, veiculo.direcao,
-               veiculo.cor, veiculo.placa, &veiculo.preco);
+    while (teclado != fim)) {
+        scanf(teclado, "%s %s %d %d %f %s %s %s %s %f",
+               &marca, &tipo, &ano, &quilometragem,
+               &motor, &transmissao, &direcao,
+               &cor, &placa, &preco);
 
         // Contabilizar o tipo de veículo
-        if (strcmp(veiculo.tipo, "Hatch") == 0) {
-            tipoHatch++;
-        } else if (strcmp(veiculo.tipo, "SUV") == 0) {
-            tipoSUV++;
-        } else if (strcmp(veiculo.tipo, "Sedã") == 0) {
-            tipoSeda++;
-        } else if (strcmp(veiculo.tipo, "Pick-up") == 0) {
-            tipoPickup++;
-        } else if (strcmp(veiculo.tipo, "Van") == 0) {
-            tipoVan++;
-        } else if (strcmp(veiculo.tipo, "Passeio") == 0) {
-            tipoPasseio++;
+        if (strcmp(tipo, "Hatch") == 0) {
+            qtdHatch++;
+        } else if (strcmp(tipo, "SUV") == 0) {
+            qtdSUV++;
+        } else if (strcmp(tipo, "Seda") == 0) {
+            qtdSeda++;
+        } else if (strcmp(tipo, "Pick-up") == 0) {
+            qtdPickup++;
+        } else if (strcmp(tipo, "Van") == 0) {
+            qtdVan++;
+        } else if (strcmp(tipo, "Passeio") == 0) {
+            qtdPasseio++;
         }
 
         // Verificar se o veículo tem câmbio automático e direção hidráulica
-        if (strcmp(veiculo.transmissao, "Automático") == 0 && strcmp(veiculo.direcao, "Hidráulica") == 0) {
+        if (strcmp(transmissao, "Automático") == 0 && strcmp(direcao, "Hidráulica") == 0) {
             veiculosAutoHidraulica++;
         }
 
         // Verificar se o veículo tem potência do motor 1.0
-        if (veiculo.motor == 1.0) {
+        if (motor == 1.0) {
             // Verificar se é o primeiro veículo com potência 1.0 ou se o preço é menor que o mínimo atual
-            if (veiculosPotencia1 == 0 || veiculo.preco < precoMinimo1) {
-                precoMinimo1 = veiculo.preco;
-                strcpy(placaMinima1, veiculo.placa);
+            if (veiculosPotencia1 == 0 || preco < precoMinimo1) {
+                precoMinimo1 = preco;
+                strcpy(placaMinima1, placa);
             }
             veiculosPotencia1++;
         }
 
         // Verificar se o veículo tem direção hidráulica e combustível flex
-        if (strcmp(veiculo.direcao, "Hidráulica") == 0 && veiculo.motor == 1.0) {
+        if (strcmp(direcao, "Hidráulica") == 0 && motor == 1.0) {
             // Verificar se é o primeiro veículo com direção hidráulica e flex ou se o preço é maior que o máximo atual
-            if (veiculos5AnosMais == 0 || veiculo.preco > precoMaximo2) {
-                precoMaximo2 = veiculo.preco;
-                strcpy(placaMaxima2, veiculo.placa);
+            if (veiculos5AnosMais == 0 || preco > precoMaximo2) {
+                precoMaximo2 = preco;
+                strcpy(placaMaxima2, placa);
             }
             veiculos5AnosMais++;
         }
 
         // Verificar se o veículo tem 5 anos ou mais (2018)
-        if (veiculo.ano <= 2018) {
-            somaKilometragem5AnosMais += veiculo.quilometragem;
+        if (ano <= 2018) {
+            somaKilometragem5AnosMais += quilometragem;
         }
 
         totalVeiculos++;
     }
 
     // Calcular as porcentagens
-    float percentualHatch = calcularPorcentagem(tipoHatch, totalVeiculos);
-    float percentualSUV = calcularPorcentagem(tipoSUV, totalVeiculos);
-    float percentualSedan = calcularPorcentagem(tipoSeda, totalVeiculos);
-    float percentualPickup = calcularPorcentagem(tipoPickup, totalVeiculos);
-    float percentualVan = calcularPorcentagem(tipoVan, totalVeiculos);
-    float percentualPasseio = calcularPorcentagem(tipoPasseio, totalVeiculos);
+    float percentualHatch   = (float) (qtdHatch / totalVeiculos) * 100;
+    float percentualSUV     = (float) (qtdSUV / totalVeiculos) * 100;
+    float percentualSedan   = (float) (qtdSedan / totalVeiculos) * 100;
+    float percentualPickup  = (float) (qtdPickup / totalVeiculos) * 100;
+    float percentualVan     = (float) (qtdVan / totalVeiculos) * 100;
+    float percentualPasseio = (float) (qtdPasseio / totalVeiculos) * 100;
 
-    float percentualAutoHidraulica = calcularPorcentagem(veiculosAutoHidraulica, totalVeiculos);
+    float percentualAutoHidraulica = (float) (veiculosAutoHidraulica / totalVeiculos) * 100;
 
     // Calcular o valor da prestação do financiamento
-    float prestacaoFinanciamento = calcularPrestacao(precoMinimo1);
+    float taxaJuros = 0.8; // Exemplo: 0.8% ao mês
+    int numParcelas = 48;
+    float prestacao = (valor * taxaJuros) / (1 - pow(1 + taxaJuros, -numParcelas)); 
 
     // Calcular o seguro estimado (10% do valor do veículo)
-    seguroEstimado3 = precoMaximo2 * 0.1;
+    seguroEstimado = precoMaximo * 0.1;
 
     // Calcular a média de quilometragem dos veículos com 5 anos ou mais
     float mediaKilometragem5AnosMais = (float)somaKilometragem5AnosMais / veiculos5AnosMais;
@@ -156,7 +134,7 @@ int main() {
     printf("\t Média de quilometragem: %.2f \n\n", mediaKilometragem5AnosMais);
 
     // Fechar o arquivo
-    fclose(arquivo);
+    teclado.close();
 
     return 0;
 }
