@@ -21,8 +21,8 @@ Após o final de leitura do arquivo, o projeto deve apresentar de forma clara as
 using namespace std;
 
 int ano, quilometragem;
-float preco, motor;
-string placa, cor, direcao, trasmissao, tipo, marca;
+float motor, preco;
+string marca, tipo, transmissao, direcao, cor, placa, placaMinima1, placaMaxima, fim;
 
 int main() {
     // Definir o número total de veículos e contadores para as categorias
@@ -31,10 +31,9 @@ int main() {
     int veiculosAutoHidraulica = 0;
     int veiculosPotencia1 = 0;
     int veiculos5AnosMais = 0;
-    int somaKilometragem5AnosMais = 0;
-    float precoMinimo1 = 0, precoMaximo2 = 0;
-    char placaMinima1[10], placaMaxima2[10];
-    float seguroEstimado3 = 0;
+    int somaKM5AnosMais = 0;
+    float precoMinimo1 = 0, precoMaximo = 0;
+    float seguroEstimado = 0;
 
     // Abrir o arquivo de dados
     ifstream teclado ("BD_veiculos.txt");
@@ -43,15 +42,12 @@ int main() {
       return 1;
     }
 
-    teclado >> veiculo;
-    //cout << "veiculo: " << veiculo << endl;
-
     // Loop para ler e processar cada linha do arquivo
-    while (teclado != fim) {
-        scanf(teclado, "%s %s %d %d %f %s %s %s %s %f",
+    while (strcmp(teclado, "fim") == 1) {
+        scanf(teclado, "%s %s %d %d %f %s %s %s %s %f %s",
                &marca, &tipo, &ano, &quilometragem,
                &motor, &transmissao, &direcao,
-               &cor, &placa, &preco);
+               &cor, &placa, &preco, &fim);
 
         // Contabilizar o tipo de veículo
         if (strcmp(tipo, "Hatch") == 0) {
@@ -86,9 +82,9 @@ int main() {
         // Verificar se o veículo tem direção hidráulica e combustível flex
         if (strcmp(direcao, "Hidráulica") == 0 && motor == 1.0) {
             // Verificar se é o primeiro veículo com direção hidráulica e flex ou se o preço é maior que o máximo atual
-            if (veiculos5AnosMais == 0 || preco > precoMaximo2) {
-                precoMaximo2 = preco;
-                strcpy(placaMaxima2, placa);
+            if (veiculos5AnosMais == 0 || preco > precoMaximo) {
+                precoMaximo = preco;
+                strcpy(placaMaxima, placa);
             }
             veiculos5AnosMais++;
         }
@@ -161,12 +157,12 @@ int main() {
     printf("\n Placa e valor do veículo mais barato com potência do motor 1.0: \n");
     printf("\t Placa: %s \n", placaMinima1);
     printf("\t Valor: %.2f \n", precoMinimo1);
-    printf("\t Valor da prestação do financiamento em 48 meses: %.2f \n", prestacaoFinanciamento);
+    printf("\t Valor da prestação do financiamento em 48 meses: %.2f \n", prestacaoHatch);
 
     printf("\n Placa e valor do veículo mais caro com direção hidráulica e combustível flex: \n");
-    printf("\t Placa: %s \n", placaMaxima2);
-    printf("\t Valor: %.2f \n", precoMaximo2);
-    printf("\t Valor do seguro estimado: %.2f \n", seguroEstimado3);
+    printf("\t Placa: %s \n", placaMaxima);
+    printf("\t Valor: %.2f \n", precoMaximo);
+    printf("\t Valor do seguro estimado: %.2f \n", seguroEstimado);
 
     printf("\n Quantidade e média de quilometragem dos veículos com 5 anos ou mais: \n");
     printf("\t Quantidade: %d \n", veiculos5AnosMais);
