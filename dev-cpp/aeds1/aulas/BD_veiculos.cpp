@@ -78,8 +78,8 @@ int main() {
                 precoMinimo1 = preco;
                 placaMinima1 = placa;
                 // Calcular o valor da prestação do financiamento
-                taxaJuros = 0.9;
-                taxa = 1 + taxaJuros;
+                taxaJuros = 0.015;
+                taxa = 1.000 + taxaJuros;
                 numParcelas = 48;
                 coefFinanceamento = taxaJuros / 1 - pow(taxa,-numParcelas);
                 prestacao = preco * coefFinanceamento;
