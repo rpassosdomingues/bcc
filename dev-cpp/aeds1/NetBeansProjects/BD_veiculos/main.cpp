@@ -1,5 +1,6 @@
 // Projeto: Estatística em Base de Dados de Veículos
 // Rafael Passos Domingues
+// 2023.1.08.036
 
 /*
 O aplicativo desenvolvido no projeto deve ler os dados de um arquivo-texto em variáveis simples e atualizar outras variáveis
@@ -10,12 +11,9 @@ A última linha, que não fará parte dos  cálculos, terá no nome do veículo 
 Após o final de leitura do arquivo, o projeto deve apresentar de forma clara as informações solicitadas nos requisitos abaixo.
 */
 
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
+#include <math.h>   // para utilizar pow no cálculo do coeficiente de financiamento.
 #include <cstdlib>
-#include <iostream> // Usa o cin e cout - Substituto do scanf
+#include <iostream> // Usa o cin e cout - Substituto do scanf.
 #include <fstream>  // Para entender comandos próprios do arquivo. Stream siginifica fluxo de dados por caracter.
 
 using namespace std;
@@ -78,10 +76,10 @@ int main() {
                 precoMinimo1 = preco;
                 placaMinima1 = placa;
                 // Calcular o valor da prestação do financiamento
-                taxaJuros = 0.9;
+                taxaJuros = 0.015;
                 taxa = 1 + taxaJuros;
                 numParcelas = 48;
-                coefFinanceamento = taxaJuros / 1 - pow(taxa,-numParcelas);
+                coefFinanceamento = taxaJuros / (1 - (pow(taxa, -numParcelas)));
                 prestacao = preco * coefFinanceamento;
             }
             veiculosPotencia1++;
@@ -121,31 +119,33 @@ int main() {
 
     // Calcular a média de quilometragem dos veículos com 5 anos ou mais
     mediaKM5AnosMais = somaKM5AnosMais / veiculos5AnosMais;
+    
+    cout << std::fixed << std::cout.precision(2);
 
     // Imprimir os resultados
-    cout << "\n\n Porcentagens de veículos nas categorias de tipo:\n";
-    cout << "   Hatch: " << percentualHatch << "%\n";
-    cout << "     SUV: " << percentualSUV << "%\n";
-    cout << "   Sedan: " << percentualSedan << "%\n";
-    cout << " Pick-up: " << percentualPickup << "%\n";
-    cout << "     Van: " << percentualVan << "%\n";
-    cout << " Passeio: " << percentualPasseio << "%\n\n";
+    cout << "\n\n Porcentagens de veículos nas categorias de tipo:\n" << endl;
+    cout << "   Hatch: " << percentualHatch << "%\n" << endl;
+    cout << "     SUV: " << percentualSUV << "%\n" << endl;
+    cout << "   Sedan: " << percentualSedan << "%\n" << endl;
+    cout << " Pick-up: " << percentualPickup << "%\n" << endl;
+    cout << "     Van: " << percentualVan << "%\n" << endl;
+    cout << " Passeio: " << percentualPasseio << "%\n\n" << endl;
 
-    cout << "\n Percentual de veículos que possuem câmbio automático e direção hidráulica: " << percentualAutoHidraulica << "% \n\n";
+    cout << "\n Percentual de veículos que possuem câmbio automático e direção hidráulica: " << percentualAutoHidraulica << "% \n\n" << endl;
 
-    cout << "\n Placa e valor do veículo mais barato com potência do motor 1.0: \n";
-    cout << "\t Placa: " << placaMinima1 << "\n";
-    cout << "\t Preço: R$ " << precoMinimo1 << "\n";
-    cout << "\t Valor da prestação do financiamento em 48 meses: R$ " << prestacao << "\n\n";
+    cout << "\n Placa e valor do veículo mais barato com potência do motor 1.0: \n" << endl;
+    cout << "\t Placa: " << placaMinima1 << "\n" << endl;
+    cout << "\t Preço: R$ " << precoMinimo1 << "\n" << endl;
+    cout << "\t Valor da prestação do financiamento em 48 meses: R$ " << prestacao << "\n\n" << endl;
 
-    cout << "\n Placa e valor do veículo mais caro com direção hidráulica e combustível flex: \n";
-    cout << "\t Placa: " << placaMaxima << "\n";
-    cout << "\t Preço: R$ " << precoMaximo << "\n";
-    cout << "\t Valor do seguro estimado: R$ " << seguroEstimado << "\n\n";
+    cout << "\n Placa e valor do veículo mais caro com direção hidráulica e combustível flex: \n" << endl;
+    cout << "\t Placa: " << placaMaxima << "\n" << endl;
+    cout << "\t Preço: R$ " << precoMaximo << "\n" << endl;
+    cout << "\t Valor do seguro estimado: R$ " << seguroEstimado << "\n\n" << endl;
 
-    cout << "\n Quantidade e média de quilometragem dos veículos com 5 anos ou mais: \n";
-    cout << "\t Quantidade: " << veiculos5AnosMais << " veículos\n";
-    cout << "\t Média de quilometragem: " << mediaKM5AnosMais << " km \n\n";
+    cout << "\n Quantidade e média de quilometragem dos veículos com 5 anos ou mais: \n" << endl;
+    cout << "\t Quantidade: " << veiculos5AnosMais << " veículos\n" << endl;
+    cout << "\t Média de quilometragem: " << mediaKM5AnosMais << " km \n\n" << endl;
 
     return 0;
 }
