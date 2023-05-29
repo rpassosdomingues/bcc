@@ -1,6 +1,6 @@
 // Projeto: Estatística em Base de Dados de Veículos
-// Rafael Passos Domingues
-// 2023.1.08.036
+// Autor: Rafael Passos Domingues
+// RA: 2023.1.08.036
 
 #include <math.h>   // para utilizar pow no cálculo do coeficiente de financiamento.
 #include <cstdlib>
