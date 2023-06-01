@@ -1,3 +1,6 @@
+bisavoPaterno(X,Y) :- avoPaterno(X,Z), pai(Z,Y).
+bisavohPaterna(X,Y) :- avohPaterna(X,Z), pai(Z,Y).
+
 avoPaterno(X,Y) :- pai(X,Z), pai(Z,Y).
 avohPaterna(X,Y) :- mae(X,Z), mae(Z,Y).
 
@@ -23,6 +26,9 @@ pai(bindito, carlos).
 mae(fiica, carlos).
 pai(bindito, rae).
 mae(fiica, rae).
+
+bisavoMaterno(X,Y) :- avoPaterno(X,Z), mae(Z,Y).
+bisavohMaterna(X,Y) :- avohPaterna(X,Z), mae(Z,Y).
 
 avoMaterno(X,Y) :- mae(X,Z), mae(Z,Y).
 avohMaterna(X,Y) :- mae(X,Z), pai(Z,Y).
@@ -51,8 +57,10 @@ mae(adriana, nicolas).
 
 irmao(X,Y) :- pai(Z,X), pai(Z,Y), X\==Y.
 
+tio(X,Y) :- irmao(Z,X), pai(Z,Y), X\==Y.
+tia(X,Y) :- irmao(Z,X), mae(Z,Y), X\==Y.
+
 ancestral(X,Y) :- pai(X,Y).
 ancestral(X,Y) :- mae(X,Y).
 ancestral(X,Y) :- pai(X,Z), ancestral(Z,Y).
 ancestral(X,Y) :- mae(X,Z), ancestral(Z,Y).
-
