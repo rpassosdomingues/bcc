@@ -1,15 +1,14 @@
-// Este programa é um exemplo básico e clássico
-// que tem como objetivo imprimir na tela uma mensagem.
+// This program is a basic and classic example
+// that aims to print a message on the screen.
 
-#include<stdio.h>  // Importa biblioteca input e output
-	           // com a rotina -header- ([en] header = [pt-br] cabeçalho).
+#include<stdio.h> // Import the input and output library
+// with the header directive.
 
-int main() {  // A função --main--
-	      // pode retornar um inteiro para o Sistema Operacional (SO)
-	      // com o propósito de servir como uma camada de teste para o compilador.
-    
-    printf("\n\t Hello World! \n\n");  // Escreve na tela a constante literal "Hello World!"
-    
-    return 0; // O retorno zero indica ao SO que o programa foi bem sucedido.
+int main(void) { // The main function
+             // can return an integer to the Operating System (OS)
+             // as a testing layer for the compiler.
+
+    printf("\n\t Hello World! \n\n");  // Writes the literal constant "Hello World!" to the screen
+
+    return 0; // The return zero indicates to the OS that the program was successful.
 }
-

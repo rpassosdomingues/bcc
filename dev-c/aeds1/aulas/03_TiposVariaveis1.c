@@ -1,45 +1,41 @@
-// Este programa tem como objetivo
-// imprimir na tela diferentes tipos de variáveis
-// e como cada tipo é alocado na memória do computador.
+/*
+This program aims to print on the screen different types of variables
+and how each type is allocated in the computer's memory.
 
-// Interessante notar o quanto de memória cada tipo de variável ocupa.
-
+   It's interesting to note how much memory each variable type occupies.
+*/
 #include<stdio.h>
-#include<cstdlib>
 
-using namespace std;
+int main(void) {
+  
+  printf("\n\t Variable Types and Memory Allocation \n\n");
 
-int main(int argc, char** argv) {
-    
-    printf("\n\t Tipos de Variáveis e Alocação de Memória \n\n");
-    
-    int valorint = 50;
-    
-    printf("\t Variável Inteira: \n");
-    printf("\t\t Valor Armazenado: %d\n", valorint);  // %d indica que o printf()
-    						      // deve imprimir um valor inteiro.
-    printf("\t\t Endereço na Memória: %p\n", &valorint);
-    printf("\t\t Quantidade em bytes: %ld\n\n", sizeof(int));  // -sizeof- calcula o tamanho
-    							       // do operando.
-    
-    float valorfloat = 50;
-    
-    printf("\t Variável Float: \n");
-    printf("\t\t Valor Armazenado: %f\n", valorfloat);  // %f indica que o printf()
-    						        // deve imprimir um valor ponto-flutuante.
-    
-    printf("\t\t Endereço na Memória: %p\n", &valorfloat);
-    printf("\t\t Quantidade em bytes: %ld\n\n", sizeof(float));
-    
-    char valorchar = 64;
-    
-    printf("\t Variável Char: \n");
-    printf("\t\t Valor Armazenado: %c\n", valorchar);  // %c indica que o printf()
-    						       // deve imprimir um caracter.
-    
-    printf("\t\t Endereço na Memória: %p\n", &valorchar);
-    printf("\t\t Quantidade em bytes: %ld\n\n", sizeof(char));
-    
-    return 0;
+  int integerValue = 50;
+
+  printf("\t Integer Variable: \n");
+  printf("\t\t Stored Value: %d\n", integerValue);  // %d indicates that printf()
+                                                    // should print an integer value.
+  printf("\t\t Memory Address: %p\n", &integerValue);
+  printf("\t\t Size in bytes: %ld\n\n", sizeof(int));  // -sizeof- calculates the size
+                                                       // of the operand.
+
+  float floatValue = 50;
+
+  printf("\t Float Variable: \n");
+  printf("\t\t Stored Value: %f\n", floatValue);  // %f indicates that printf()
+                                                  // should print a floating-point value.
+
+  printf("\t\t Memory Address: %p\n", &floatValue);
+  printf("\t\t Size in bytes: %ld\n\n", sizeof(float));
+
+  char charValue = 64;
+
+  printf("\t Char Variable: \n");
+  printf("\t\t Stored Value: %c\n", charValue);  // %c indicates that printf()
+                                                 // should print a character.
+
+  printf("\t\t Memory Address: %p\n", &charValue);
+  printf("\t\t Size in bytes: %ld\n\n", sizeof(char));
+
+  return 0;
 }
-
