@@ -1,33 +1,35 @@
 #include <stdio.h>
 
-int main() {
+int main(void) {
     
-    int m, n, x, y, expressao, valorMax, xMax, yMax;
+  int m, n, x, y, expression, maxValue, maxX, maxY;
 
-    x = 1;
-    y = 1;
-    valorMax = 0;
+  x = 1;
+  y = 1;
+  maxValue = 0;
 
-    printf("\n Digite o valor de m: ");
-    scanf("%d", &m);
-    printf("\n Digite o valor de n: ");
-    scanf("%d", &n);
+  printf("\n Enter the value of m: ");
+  scanf("%d", &m);
+  printf("\n Enter the value of n: ");
+  scanf("%d", &n);
 
-    while (x < m) {
-      while (y < n) {
-        expressao = x*y - x*x + y;
-          if (expressao > valorMax) {
-            valorMax = expressao;
-            xMax = x;
-            yMax = y;
-          }
-          y++;
+  while (x < m) {
+    y = 1; // Reset y for each new value of x
+    while (y < n) {
+      expression = x * y - x * x + y;
+      if(expression > maxValue){
+        maxValue = expression;
+        maxX = x;
+        maxY = y;
       }
-      x++;
+      y++;
     }
+    x++;
+  }
 
-    printf("\n\t O par (x, y) que maximiza a expressão é: (%d, %d)\n", xMax, yMax);
-    printf("\t O valor máximo encontrado é: %d \n\n", valorMax);
+  printf("\n\t The pair (x, y) that maximizes the expression is: (%d, %d)\n", maxX, maxY);
+  printf("\t The maximum value found is: %d \n\n", maxValue);
 
-    return 0;
+  return 0;
+
 }

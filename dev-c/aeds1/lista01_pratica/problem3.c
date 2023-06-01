@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int h, f, g, x, y;
     
     x = 1;

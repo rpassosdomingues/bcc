@@ -1,91 +1,73 @@
 /*
-Projeto 1: Faça um algoritmo que leia um conjunto de dados contendo a altura
-(de 1,00 m a 2,30 m) e o sexo (‘F’ ou ‘M’) mantendo a consistência das
-informações. Interrompa a entrada de dados quando a altura for igual à
-zero. Calcule e apresente:
-1. a porcentagem de pessoas com altura maior que 1,80 m;
-2. a média de altura dos homens;
-3. a porcentagem de mulheres menores que 1,70 m entre todas
-as pessoas.
+  Project 1: Create an algorithm that reads a set of data containing height (from 1.00 m to 2.30 m) and gender ('F' or 'M'), ensuring data consistency. Stop entering data when the height is zero. Calculate and present:
+
+    [1] the percentage of people with height greater than 1.80 m;
+    [2] the average height of men;
+    [3] the percentage of women shorter than 1.70 m among all individuals.
 */
 
 #include <stdio.h>
 
-using namespace std;
+int main(void){
 
-int main() {
+  char gender;
+  float averageHeightMen, totalPeople, pc180, pcWomen170;
 
-    float altura, pc180, mediaAlturaHomens, pcMulheres170, somaAlturasHomens, qtdHomens, qtdMulheres, qtdPessoas180, qtdMulheres170, totalPessoas;
-    char sexo;
+  float height = -1;
+  float numMen = 0;
+  float numWomen = 0;
+  float sumHeightMen = 0;
+  float numPeople180 = 0;
+  float numWomen170 = 0;
 
-    altura = -1;
-    qtdHomens = 0;
-    qtdMulheres = 0;
-    somaAlturasHomens = 0;
-    qtdPessoas180 = 0;
-    qtdMulheres170 = 0;
+  while (height != 0) {
 
-    printf("\n Digite a altura [1.00 < altura < 2.30]: ");
-    scanf(" %f", &altura);
-    while(altura > 0 && altura < 1.00 || altura > 2.30){
-      printf("\n Há algo errado! Tente de novo. \n");
-      printf("\n Digite a altura [1.00 < altura < 2.30]: ");
-      scanf(" %f", &altura);
+    printf("\n Enter the height [1.00 < height < 2.30]: ");
+    scanf(" %f", &height);
+    while (height > 0 && (height < 1.00 || height > 2.30)) {
+      printf("\n Sorry, try again: ");
+      scanf(" %f", &height);
     }
 
-    if(altura == 0){
+    if (height >= 1.80) {
+      numPeople180++;
+    }
 
-      while (altura != 0){
+    printf("\n Enter the gender (M/F): ");
+    scanf(" %c", &gender);
+    while (gender != 'M' && gender != 'm' && gender != 'F' && gender != 'f') {
+      printf("\n Sorry, try again: ");
+      scanf(" %c", &gender);
+    }
 
-        printf("\n Digite a altura [1.00 < altura < 2.30]: ");
-        scanf(" %f", &altura);
-        while(altura > 0 && altura < 1.00 || altura > 2.30){
-          printf("\n Há algo errado! Tente de novo. \n");
-          printf("\n Digite a altura [1.00 < altura < 2.30]: ");
-          scanf(" %f", &altura);
+    if(gender == 'm' || gender == 'M'){
+      numMen++;
+      sumHeightMen += height;
+    } else if(gender == 'f' || gender == 'F'){
+        numWomen++;
+        if(height <= 1.70){
+          numWomen170++;
         }
-
-        if (altura >= 1.80){
-          qtdPessoas180 = qtdPessoas180 + 1;
-        }
-
-        printf("\n Digite o sexo (M/F): ");
-        scanf(" %c", &sexo);
-        while (sexo != 'M' && sexo != 'm' && sexo != 'F' && sexo != 'f') {
-          printf("\n Há algo errado! Tente de novo. ");
-          scanf(" %c", &sexo);
-        }
-
-        if (sexo == 'm' || sexo == 'M'){
-          qtdHomens = qtdHomens + 1;
-          somaAlturasHomens = somaAlturasHomens + altura;
-        } else
-              if (sexo == 'f' || sexo == 'F'){
-                qtdMulheres = qtdMulheres + 1;
-              } else
-                    if (altura <= 1.70){
-                      qtdMulheres170 = qtdMulheres170 + 1;
-                    }
-
-        totalPessoas = qtdHomens + qtdMulheres;
-
-        pc180 = (qtdPessoas180/totalPessoas) * 100;
-
-        if (qtdHomens > 0){
-          mediaAlturaHomens = somaAlturasHomens/qtdHomens;
-        }
-
-        pcMulheres170 = (qtdMulheres170/qtdMulheres) * 100;
-
       }
 
-      printf("\n\t === Resultados === \n");
-
-      printf("\n\t %.2f %% das pessoas possuem altura maior que 1.80 m. \n", pc180);
-      printf("\t A média de altura dos homens é de %.2f m \n", mediaAlturaHomens);
-      printf("\n\t %.2f %% das mulheres possuem altura menor que 1.70 m. \n", pcMulheres170);
-    
     }
 
-    return 0;
+    totalPeople = numMen + numWomen;
+    
+    pc180 = (numPeople180 / totalPeople) * 100;
+    
+    if(numMen > 0){
+      averageHeightMen = sumHeightMen / numMen;
+    }
+    
+    pcWomen170 = (numWomen170 / numWomen) * 100;
+    
+    printf("\n\t ===================== Results ===================== \n");
+    
+    printf("\n\t %.2f%% of people have a height greater than 1.80 m. \n", pc180);
+    printf("\t The average height of men is %.2f m. \n", averageHeightMen);
+    printf("\n\t %.2f%% of women have a height shorter than 1.70 m. \n", pcWomen170);
+    
+    printf("\n\t ===================== ------- ===================== \n");
+  return 0;
 }

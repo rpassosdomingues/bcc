@@ -1,37 +1,29 @@
 /*
-Projeto 0 - Receita de bolo para implementar algoritmos.
+// Project 0 - Cake recipe for implementing algorithms.
 
-#include <stdio.h> // bibliotecas necessárias
+#include <stdio.h> // import libraries
 
-int main() {
-    
-    // declarar variaveis e seus tipos
+int main(void){
 
-    // iniciar variaveis que acumulam valores (atualizadas)
+  // declare variables and their types
 
-    // estruturas de repeticao
-    while (contador < teto){
+  // initialize variables that accumulate values (updated)
 
-      // ler variaveis
-      
-      // estruturas condicionais
-      
-      if (isso == aquilo){
-          faça tal coisa
-        } else if (fulano != sicrano){
-            fulano = fulano + 1;
-          } else if (valor < menorValor){
-              menorValor = valor;
-    
-    // estruturas de seleção
-    
-    // comandos de atribuição
-    
-    contador++;
-    }
-    
-    // escrever resultados
+  // repetition structures
 
-    return 0;
+  // read variables
+  
+  // conditional structures
+
+  // selection structures
+
+  // assignment statements
+
+  // count++;
+  }
+
+  // write results
+
+  return 0;
 }
 */
