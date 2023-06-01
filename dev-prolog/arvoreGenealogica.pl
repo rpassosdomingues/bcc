@@ -4,28 +4,28 @@ bisavohPaterna(X,Y) :- avohPaterna(X,Z), pai(Z,Y).
 avoPaterno(X,Y) :- pai(X,Z), pai(Z,Y).
 avohPaterna(X,Y) :- mae(X,Z), mae(Z,Y).
 
-pai(bindito, maria).
-mae(fiica, maria).
-pai(bindito, helio).
-mae(fiica, helio).
-pai(bindito, joseLuiz).
-mae(fiica, joseLuiz).
-pai(bindito, teresa).
-mae(fiica, teresa).
-pai(bindito, nila).
-mae(fiica, nila).
-pai(bindito, sinesio).
-mae(fiica, sinesio).
-pai(bindito, neuza).
-mae(fiica, neuza).
-pai(bindito, joaoBatista).
-mae(fiica, joaoBatista).
-pai(bindito, carminha).
-mae(fiica, carminha).
-pai(bindito, carlos).
-mae(fiica, carlos).
-pai(bindito, rae).
-mae(fiica, rae).
+pai(benedito, maria).
+mae(iolanda, maria).
+pai(benedito, helio).
+mae(iolanda, helio).
+pai(benedito, joseLuiz).
+mae(iolanda, joseLuiz).
+pai(benedito, teresa).
+mae(iolanda, teresa).
+pai(benedito, nila).
+mae(iolanda, nila).
+pai(benedito, sinesio).
+mae(iolanda, sinesio).
+pai(benedito, neuza).
+mae(iolanda, neuza).
+pai(benedito, joaoBatista).
+mae(iolanda, joaoBatista).
+pai(benedito, carminha).
+mae(iolanda, carminha).
+pai(benedito, carlos).
+mae(iolanda, carlos).
+pai(benedito, rae).
+mae(iolanda, rae).
 
 bisavoMaterno(X,Y) :- avoPaterno(X,Z), mae(Z,Y).
 bisavohMaterna(X,Y) :- avohPaterna(X,Z), mae(Z,Y).
@@ -33,22 +33,22 @@ bisavohMaterna(X,Y) :- avohPaterna(X,Z), mae(Z,Y).
 avoMaterno(X,Y) :- mae(X,Z), mae(Z,Y).
 avohMaterna(X,Y) :- mae(X,Z), pai(Z,Y).
 
-pai(didi, agna).
-mae(cida, agna).
-pai(didi, arlete).
-mae(cida, arlete).
-pai(didi, adair).
-mae(cida, adair).
-pai(didi, joaoAilton).
-mae(cida, joaoAilton).
-pai(didi, joseAdalton).
-mae(cida, joseAdalton).
-pai(didi, anAlice).
-mae(cida, anAlice).
-pai(didi, anaLucia).
-mae(cida, anaLucia).
-pai(didi, adriana).
-mae(cida, adriana).
+pai(joao, agna).
+mae(Maria, agna).
+pai(joao, arlete).
+mae(Maria, arlete).
+pai(joao, adair).
+mae(Maria, adair).
+pai(joao, joaoAilton).
+mae(Maria, joaoAilton).
+pai(joao, joseAdalton).
+mae(Maria, joseAdalton).
+pai(joao, anAlice).
+mae(Maria, anAlice).
+pai(joao, anaLucia).
+mae(Maria, anaLucia).
+pai(joao, adriana).
+mae(Maria, adriana).
 
 pai(carlos, rafael).
 mae(adriana, rafael).
