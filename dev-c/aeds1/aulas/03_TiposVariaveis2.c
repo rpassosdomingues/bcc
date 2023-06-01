@@ -5,7 +5,7 @@
 
 #include<stdio.h>
 
-int main(void) {
+int main(void){
   
   printf("\n\t ASCII Table \n\n");
 

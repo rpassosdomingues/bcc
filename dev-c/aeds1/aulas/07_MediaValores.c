@@ -1,47 +1,40 @@
-// Aqui eu fiz um projeto para calcular a média de valores digitados
-// pelo usuário, sendo que o útltimo, que não entrará nos cálculos, será igual a 0 (zero).
+/*
+This project calculate the average of values > 0 entered
+by the user, where the last value, which will not be included
+in the calculations, is 0 (zero).
 
-// Aqui o zero será condição de parada.
-
-#include <cstdlib>
+Here, zero will be the stop condition.
+*/
 #include <stdio.h>
 
-using namespace std;
+int main(void){
+  
+  int count;
+  float total, quantity, value, average;
 
-int main(int argc, char** argv) {
+  count = 0;
+  total = 0;
+  value = -1;
 
-    int contador;
-    float total, quantidade, valor, media;
-    
-    contador = 0;
-    total = 0;
-    
-    printf("\n\t Digite o valor: ");
-    scanf(" %f", &valor);
-    while (valor < 0.0){
-      printf("\n\t Valor inválido. Digite novamente o valor:");
-      scanf(" %f", &valor);
-    }
-    
-    if (valor != 0){
+  if(value != 0){
+  
+    while (value != 0){
 
-      while (valor != 0){
+      printf("\n Enter a value: ");
+      scanf(" %f", &value);
+
+      total = total + value;
+      count = count + 1;
+      quantity = count - 1;
       
-        printf("\n\t Digite o valor: ");
-        scanf(" %f", &valor);
-
-        total = total + valor;
-        contador = contador + 1;
-        quantidade = contador - 1;
-
-      }
-
-      if (quantidade != 0){
-        media = total/quantidade;
-      }
-      
-      printf("\n\t\t A média de valores é: %.2f \n\n", media);
     }
-    
-    return 0;
+
+    if(quantity != 0){
+      average = total/quantity;
+    }
+  
+    printf("\n\t\t The average of values is: %.2f \n\n", average);
+  }
+
+  return 0;
 }

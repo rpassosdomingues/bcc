@@ -6,7 +6,7 @@ and how each type is allocated in the computer's memory.
 */
 #include<stdio.h>
 
-int main(void) {
+int main(void){
   
   printf("\n\t Variable Types and Memory Allocation \n\n");
 

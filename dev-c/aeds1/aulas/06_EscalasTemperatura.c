@@ -1,35 +1,35 @@
-// Este programa converte valores de temperatura
-// de Celsius (de 0°C a 100°C) para Farenheit.
+/*
+This program converts temperature values
+from Celsius (from 0°C to 100°C) to Fahrenheit.
+*/ 
 
 #include<stdio.h>
 
-int main() {
-    
-    int contador;
-    float tempcel, tempfah, incremento, limite;
-    
-    contador = 0;
-    incremento = 1;
-    
-    tempcel = -incremento;
+int main(void){
+  
+  int count;
+  float celsius, fahrenheit, increment, limit;
 
-    limite = 100;
-    
-    printf("--------------------------------------------\n");
-    printf("    Contador Temperatura (°C) Temperatura (°F) \n");
-    printf("--------------------------------------------\n");
+  count = 0;
+  increment = 1;
 
-    while (tempcel < limite) {
-    	
-        contador = contador + incremento;
-    	tempcel = tempcel + incremento;
+  celsius = -increment;
+  limit = 100;
 
-        tempfah = (9 * tempcel/5) + 32;
+  printf("----------------------------\n");
+  printf("  Count | (°C) | (°F) \n");
+  printf("----------------------------\n");
 
-    	printf("\n\t %d \t %.2f \t\t %.2f \n", contador, tempcel, tempfah);
-    
-    }
-    
-    return 0;
+  while (celsius < limit){
+	
+    count = count + increment;
+    celsius = celsius + increment;
+
+    fahrenheit = (9 * celsius/5) + 32;
+
+	printf("\n    %d \t %.2f \t %.2f\n", count, celsius, fahrenheit);
+
+  }
+
+return 0;
 }
-

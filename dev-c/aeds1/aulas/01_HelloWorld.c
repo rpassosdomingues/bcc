@@ -4,7 +4,7 @@
 #include<stdio.h> // Import the input and output library
 // with the header directive.
 
-int main(void) { // The main function
+int main(void){ // The main function
              // can return an integer to the Operating System (OS)
              // as a testing layer for the compiler.
 

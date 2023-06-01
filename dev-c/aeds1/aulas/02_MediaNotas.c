@@ -4,7 +4,7 @@
 
 #include<stdio.h>
 
-int main(void) {
+int main(void){
   float grade1, grade2, workGrade, average; // Reserve four memory spaces
                                           // to store variables of type float.
 

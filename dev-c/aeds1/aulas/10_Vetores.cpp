@@ -1,7 +1,7 @@
 /*
-* Autor: Rafael Passos Domingues
-* RA: 2023.1.08.026
-* Escrito em 29 de Maio de 2023
+  Author: Rafael Passos Domingues
+  RA: 2023.1.08.026
+  Written on May 29, 2023
 */
 
 #include <iostream>
@@ -9,31 +9,29 @@
 using namespace std;
 
 int main(void) {
-    int vetor[10] = {40, 11, 27, 30, 4, 25, 16, 27, 87, 9};
-    int tamanho = 10;
-    int inicio = 0;
-    int fim = tamanho - 1;
-    int swap;
+  
+  int array[10] = {40, 11, 27, 30, 4, 25, 16, 27, 87, 9};
+  int size = 10, start = 0, end = size - 1, swap;
 
-    cout << "\n vetor original: ";
-    for (int i = 0; i < tamanho; i++) {
-        cout << vetor[i] << " ";
-    }
+  cout << "\n Original array: ";
+  for (int i = 0; i < size; i++) {
+    cout << array[i] << " ";
+  }
 
-    while (inicio < fim) {
-        swap = vetor[inicio];
-        vetor[inicio] = vetor[fim];
-        vetor[fim] = swap;
+  while (start < end) {
+    swap = array[start];
+    array[start] = array[end];
+    array[end] = swap;
+    
+    start++;
+    end--;
+  }
 
-        inicio++;
-        fim--;
-    }
+  cout << "\n Reversed array: ";
+  for (int i = 0; i < size; i++) {
+    cout << array[i] << " ";
+  }
+  cout << "\n\n";
 
-    cout << "\n vetor invertido: ";
-    for (int i = 0; i < tamanho; i++) {
-        cout << vetor[i] << " ";
-    }
-    cout << "\n\n";
-
-    return 0;
+  return 0;
 }

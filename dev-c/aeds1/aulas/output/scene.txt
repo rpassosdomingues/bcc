@@ -1,0 +1,4 @@
+sphere 3
+cylinder 2 7
+cube 4
+exit

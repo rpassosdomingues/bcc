@@ -1,40 +1,36 @@
-// Aqui fiz um projeto para encontrar o menor e o maior valor digitado.
+// This project find the smallest and largest value entered.
 
-#include <cstdlib>
 #include <stdio.h>
 
-using namespace std;
-
-int main(int argc, char** argv) {
-
-    float valor, maiorValor, menorValor;
-
-    printf("\n\t Digite o valor: ");
-    scanf(" %f", &valor);
-
-    if (valor != 0){
-
-      maiorValor = valor;
-      menorValor = valor;
-
-      while (valor != 0){
-
-        if (valor < menorValor){
-          menorValor = valor;
-        } else
-              if(valor > maiorValor){
-                maiorValor = valor;
-              }
-
-        printf("\n\t Digite o valor: ");
-        scanf(" %f", &valor);
-      
+int main(void){
+  
+  float value, largestValue, smallestValue;
+  
+  printf("\n Enter a value: ");
+  scanf(" %f", &value);
+  
+  if (value != 0){
+  
+    largestValue = value;
+    smallestValue = value;
+  
+    while (value != 0){
+  
+    if(value < smallestValue){
+      smallestValue = value;
+    } else if(value > largestValue){
+        largestValue = value;
       }
-    
-      printf("\n\t\t O maior valor é: %.2f \n", maiorValor);
-      printf("\n\t\t O menor valor é: %.2f \n\n", menorValor);
-    
-    }
+  
+    printf("\n Enter a value: ");
+    scanf(" %f", &value);
+  
+  }
+  
+  printf("\n\t\t The largest value is: %.2f \n", largestValue);
+  printf("\n\t\t The smallest value is: %.2f \n\n", smallestValue);
+  
+}
 
-    return 0;
+return 0;
 }

@@ -1,33 +1,32 @@
-// Este programa calcula a média de altura de um universo.
+// This program calculates the average height of a universe.
 
 #include<stdio.h>
 
-int main() {
-    
-    int contador;
-    float altura, total, quantidade, media;
-    
-    contador = 0;
-    total = 0;
-    quantidade = 10;
-    
-    while (contador < quantidade){
-    
-      printf("\n\t Digite a altura: ");
-      scanf(" %f", &altura);
-      while (altura < 0.0 || altura > 2.5){
-        printf("\n\t Valor inválido. Digite novamente a altura:");
-        scanf(" %f", &altura);
-      }
-      
-      total = total + altura;
-      contador++;
+int main(void){
+  
+  int count;
+  float height, total, quantity, average;
+
+  count = 0;
+  total = 0;
+  quantity = 10;
+
+  while (count < quantity){
+
+    printf("\n Enter the height: ");
+    scanf(" %f", &height);
+    while (height < 0.0 || height > 2.5){
+      printf("\n\t Sorry, try again: ");
+      scanf(" %f", &height);
     }
+  
+    total = total + height;
+    count++;
+  }
 
-    media = total/quantidade;
-    
-    printf("\n\t\t A média de altura é: %.2f metro \n\n", media);
-    
-    return 0;
+  average = total/quantity;
+
+  printf("\n\t\t The average height is: %.2f meters \n\n", average);
+
+  return 0;
 }
-

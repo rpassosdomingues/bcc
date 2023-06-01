@@ -1,72 +1,68 @@
-// Aqui eu fiz um projeto para ler um arquivo de texto 'cena.txt' e distinguir strings.
+// This code distinguish strings.
 
 #include <cstdlib>
-#include <iostream> // Usa o cin e cout - Substituto do scanf
-#include <fstream>  // Para entender comandos próprios do arquivo. Stream siginifica fluxo de dados por caracter.
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
-int main() {
+int main(void){
+  
+  string figure;
+  const float PI = 3.14;
+  float radius, height, baseArea, sideLength, area, amount, totalArea, totalAmount;
 
-    string figura;
-    ifstream teclado ("cena.txt");
-    const float PI = 3.14;
-    float raio, radius, altura, areaBase, lado, area, volume, areaTotal, volumeTotal;
+  totalArea = 0;
+  totalAmount = 0;
 
-    areaTotal = 0;
-    volumeTotal = 0;
+  ifstream inputFile("scene.txt");
+  if(!inputFile.is_open()) {
+    cout << "\n File not found. \n";
+    return 1;
+  }
 
-    if (!teclado.is_open()){
-      cout << "\n Erro: Arquivo não encontrado. \n";
-      return 1;
-    }
-    
-    teclado >> figura;
-    //cout << "figura: " << figura << endl;
-    
-    while ( figura != "fim" ){
+  inputFile >> figure;
+  while(figure != "exit") {
+  
+    if(figure == "sphere") {
+      inputFile >> radius;
 
-      if (figura == "esfera"){
-        teclado >> raio;
+      area = 4 * PI * radius * radius;
+      amount = (4.0 / 3.0) * PI * radius * radius * radius;
 
-        area = 4 * PI * raio * raio;
-        volume = float(4/3) * PI * raio * raio * raio;
-      
-        areaTotal = areaTotal + area;
-        volumeTotal = volumeTotal + volume;
-      
-        printf("\n   Esfera: área = %.2f m² & volume = %.2f m³ \n", area, volume);
-      } else
-          if (figura == "cilindro"){
-            teclado >> radius, altura;
+      totalArea += area;
+      totalAmount += amount;
 
-            areaBase = PI * radius * radius;
-            area = (2 * PI * radius * altura) + (2 * areaBase);
-            volume = areaBase * altura;
-            
-            areaTotal = areaTotal + area;
-            volumeTotal = volumeTotal + volume;
-            
-            printf("\n Cilindro: área = %.2f m² & volume = %.2f m³ \n", area, volume);
-          } else
-              if (figura == "cubo"){
-                teclado >> lado;
+      cout << "\n  Sphere: area = " << area << " m² & " << "amount = " << amount << " m³" << endl;
 
-                area = lado * lado;
-                volume = lado * lado * lado;
-              
-                areaTotal = areaTotal + area;
-                volumeTotal = volumeTotal + volume;
-              
-                printf("\n     Cubo: área = %.2f m² & volume = %.2f m³ \n", area, volume);
-              }
-    
-      teclado >> figura;
-    }
-    teclado.close();
-    
-    printf("\n\t -> A área total da cena é: %.2f m² \n", areaTotal);
-    printf("\n\t -> O volume total da cena é: %.2f m³ \n\n", volumeTotal);
+    } else if(figure == "cylinder"){
+        inputFile >> radius >> height;
 
-    return 0;
+        baseArea = PI * radius * radius;
+        area = (2 * PI * radius * height) + (2 * baseArea);
+        amount = baseArea * height;
+        
+        totalArea += area;
+        totalAmount += amount;
+        
+        cout << "Cylinder: area = " << area << " m² & " << "amount = " << amount << " m³" << endl;
+    } else if(figure == "cube"){
+        inputFile >> sideLength;
+
+        area = 6 * sideLength * sideLength;
+        amount = sideLength * sideLength * sideLength;
+
+        totalArea += area;
+        totalAmount += amount;
+
+        cout << "    Cube: area =     " << area << " m² & " << "amount = " << amount << " m³" << endl;
+      }
+  inputFile >> figure;
+  }
+  inputFile.close();
+
+  cout << "\n\t ->   The total area of the scene is: " << totalArea << " m²" << endl;
+  cout << "\t -> The total amount of the scene is: " << totalAmount << " m³ \n" << endl;
+
+  return 0;
 }

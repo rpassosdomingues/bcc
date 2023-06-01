@@ -1,53 +1,46 @@
-// Aqui eu escrevi um programa que dados os três valores de entrada
-// representando lados de um triângulo me diz se há formação possível de triângulo
-// e em caso de teste verdadeiro, classifica o tipo de triângulo de acordo com a distribuição.
+// Here I have written a program that takes three input values
+// representing the sides of a triangle and tells me if it's possible to form a triangle
+// and in case of a true test, it classifies the type of triangle based on the distribution.
 
-#include <cstdlib>
 #include <stdio.h>
 
-using namespace std;
+int main(void){
+  float sideA, sideB, sideC;
 
-int main(int argc, char** argv) {
+  printf("\n\t Types of Triangles. \n\n");
+    
+  printf("\n\t Enter the first side: ");
+  scanf(" %f", &sideA);
+  while (sideA <= 0.0){
+    printf("\n\t Invalid value, please enter the first side again: ");
+    scanf(" %f", &sideA);
+  }
+  
+  printf("\n\t Enter the second side: ");
+  scanf(" %f", &sideB);
+  while (sideB <= 0.0){
+    printf("\n\t Invalid value, please enter the second side again: ");
+    scanf(" %f", &sideB);
+  }
+  
+  printf("\n\t Enter the third side: ");
+  scanf(" %f", &sideC);
+  while (sideC <= 0.0){
+    printf("\n\t Invalid value, please enter the third side again: ");
+    scanf(" %f", &sideC);
+  }
 
-    float ladoA, ladoB, ladoC;
-    
-    printf("\n\t Tipos de Triângulos. \n\n");
-        
-    printf("\n\t Digite o primeiro lado: ");
-    scanf(" %f", &ladoA);
-    while (ladoA <= 0.0){
-        printf("\n\t Valor inválido, digite novamente o primeiro lado: ");
-        scanf(" %f", &ladoA);
-    }
-    printf("\n\t Digite o segundo lado: ");
-    scanf(" %f", &ladoB);
-    while (ladoB <= 0.0){
-        printf("\n\t Valor inválido, digite novamente o segundo lado: ");
-        scanf(" %f", &ladoB);
-    }
-    printf("\n\t Digite o terceiro lado: ");
-    scanf(" %f", &ladoC);
-    while (ladoC <= 0.0){
-        printf("\n\t Valor inválido, digite novamente o terceiro lado: ");
-        scanf(" %f", &ladoC);
-    }
-    
-    if ((ladoA + ladoB < ladoC) || (ladoB + ladoC < ladoA) || (ladoA + ladoC < ladoB)){ // Início do 1° if.
-        printf("\n\t Estes lados não podem formar um triângulo.\n\n");
-    } else {                                        		    			// Início do 1º else.
-        if ((ladoA == ladoB) && (ladoA == ladoC)){                  			// Início do 2º if.
-            printf("\n\t Estes lados formam um triângulo equilátero.\n\n");
-        } else {                                    					// Início do 2º else.
-            if ((ladoA == ladoB) || (ladoA == ladoC) || (ladoB == ladoC)){  		// Início do 3º if.
-                printf("\n\t Estes lados formam um triângulo isósceles.\n\n");
-            } else {                                					// Início do 3º else.
-                printf("\n\t Estes lados formam um triângulo escaleno.\n\n");
-            }                                       					// Fim do 3º if e else.
-            if ((ladoA*ladoA == ladoB*ladoB+ladoC*ladoC) || (ladoB*ladoB == ladoA*ladoA+ladoC*ladoC) || (ladoC*ladoC == ladoB*ladoB+ladoA*ladoA)){ // Início do 4º if.
-                printf("\t Estes lados formam um triângulo retângulo.\n\n");
-            }                                       					// Fim do 4º if.
-        }                                           					// Fim do 2º if e else.
-    }                                               					// Fim do 1º if e else.
-    
-    return 0;
+  if ((sideA + sideB < sideC) || (sideB + sideC < sideA) || (sideA + sideC < sideB)){
+    printf("\n\t These sides cannot form a triangle.\n\n");
+  } else if ((sideA == sideB) && (sideA == sideC)){
+      printf("\n\t These sides form an equilateral triangle.\n\n");
+  } else if ((sideA == sideB) || (sideA == sideC) || (sideB == sideC)){
+    printf("\n\t These sides form an isosceles triangle.\n\n");
+  } else printf("\n\t These sides form a scalene triangle.\n\n");
+
+  if ((sideA*sideA == sideB*sideB + sideC*sideC) || (sideB*sideB == sideA*sideA + sideC*sideC) || (sideC*sideC == sideB*sideB + sideA*sideA)){
+    printf("\t These sides form a rectangle triangle.\n\n");
+  }
+
+  return 0;
 }

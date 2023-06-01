@@ -12,7 +12,7 @@
 
 using namespace std;
 
-int main(void) {
+int main(void){
     
     float radius, height, baseArea, totalArea, amount; // Reserve five memory spaces
                                                        // to store two inputs,
