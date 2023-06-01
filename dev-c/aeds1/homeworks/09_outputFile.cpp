@@ -10,7 +10,7 @@ int main(void){
 
   int lenght=1000, increment=100, random_filler;
 
-  ofstream outputFile("file.txt");
+  ofstream outputFile("outputFile.txt");
 
   if(!outputFile.is_open()) {
     cout << "\n Failed to create/open file. \n";
