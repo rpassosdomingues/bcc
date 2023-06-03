@@ -11,7 +11,7 @@ using namespace std;
 int main(void) {
   
   int size = 10, temp;
-  int array[size] = {9, 0, 8, 1, 7, 2, 6, 3, 5, 4};
+  int array[size] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
   cout << "\n Original array: ";
   for(int start = 0; start < size; start++){
