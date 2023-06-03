@@ -1,7 +1,5 @@
 /*
-  Author: Rafael Passos Domingues
-  RA: 2023.1.08.026
-  Written on May 29, 2023
+  This project ordenate arrays with different methods.
 */
 
 #include <iostream>
