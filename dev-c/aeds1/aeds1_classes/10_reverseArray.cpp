@@ -1,5 +1,7 @@
 /*
-  This project ordenate arrays with different methods.
+  Author: Rafael Passos Domingues
+  RA: 2023.1.08.026
+  Written on May 29, 2023
 */
 
 #include <iostream>
@@ -8,7 +10,7 @@ using namespace std;
 
 int main(void) {
   
-  int size = 10, swap;
+  int size = 10, temp;
   int array[size] = {9, 0, 8, 1, 7, 2, 6, 3, 5, 4};
 
   cout << "\n Original array: ";
@@ -17,9 +19,9 @@ int main(void) {
   }
 
   for(int start = 0, end = size - 1; start < size / 2; start++, end--){
-    swap = array[start];
+    temp = array[start];
     array[start] = array[end];
-    array[end] = swap;
+    array[end] = temp;
   }
 
   cout << "\n Reversed array: ";
