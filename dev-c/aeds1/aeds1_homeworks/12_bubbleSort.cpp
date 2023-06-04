@@ -1,5 +1,5 @@
 /*
-  This project sort vector with select sort method.
+  This project sort vector with bubble sort method.
 */
 
 #include <iostream>
@@ -16,16 +16,14 @@ int main(void){
     cout << array[start] << " ";
   }
 
-  // Select Sort
+  // Bubble Sort
   for(int start = 0; start < lenght - 1; start++){
-    int maxIndex = start;
     for(int next = start + 1; next < lenght; next++){
-      if(array[next] > array[maxIndex]){
-        maxIndex = next;
+      if(array[start] > array[next]){
+        temp = array[start];
+        array[start] = array[next];
+        array[next] = temp;
       }
-      temp = array[maxIndex];
-      array[maxIndex] = array[next];
-      array[next] = temp;
     }
   }
 

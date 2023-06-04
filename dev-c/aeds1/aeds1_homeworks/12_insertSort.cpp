@@ -1,5 +1,5 @@
 /*
-  This project sort vector with insert sort method.
+  This project sort vector with inserction sort method.
 */
 
 #include <iostream>
@@ -8,29 +8,28 @@ using namespace std;
 
 int main(void){
   
-  int lenght = 10, temp;
+  int lenght = 10, key;
   int array[lenght] = {9, 0, 8, 1, 7, 2, 6, 3, 5, 4};
-  int sortArray[lenght] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
   cout << "\n Original array: ";
   for(int start = 0; start < lenght; start++){
     cout << array[start] << " ";
   }
 
-  // Insert Sort
-  for(int start = 0; start < lenght - 1; start++){
+  // Inserction Sort
+  for(int start = 0; start < lenght; start++){
     for(int next = start + 1; next < lenght; next++){
-      if(array[start] < array[next]){
-        temp = array[start];
-        array[start] = array[next];
-        sortArray[start] = temp;
+      key = array[next];
+      if(array[start] > key){
+        array[next] = array[start];
+        array[start] = key;
       }
     }
   }
 
   cout << "\n Sort array: ";
   for(int start = 0; start < lenght; start++){
-    cout << sortArray[start] << " ";
+    cout << array[start] << " ";
   }
   cout << "\n\n";
 
