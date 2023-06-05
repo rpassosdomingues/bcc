@@ -5,3 +5,4 @@
 Este é um comentário em bloco.
 -}
 
+"Hello: " ++ "World!"

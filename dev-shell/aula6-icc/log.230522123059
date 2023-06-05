@@ -1,0 +1,12 @@
+total 40
+drwxr-xr-x 2 2023.1.08.036 Domain Users 4096 mai 22 12:30 .
+drwxr-xr-x 4 2023.1.08.036 Domain Users 4096 mai 22 10:22 ..
+-rwxr-xr-x 1 2023.1.08.036 Domain Users  332 mai 22 10:35 exemplo.sh
+-rw-r--r-- 1 2023.1.08.036 Domain Users  707 mai 22 12:27 log.
+-rw-r--r-- 1 2023.1.08.036 Domain Users    0 mai 22 12:30 log.230522123059
+-rwxr-xr-x 1 2023.1.08.036 Domain Users  208 mai 22 10:55 saidasFuncoes.sh
+-rwxr-xr-x 1 2023.1.08.036 Domain Users  117 mai 22 11:48 script.sh
+-rwxr-xr-x 1 2023.1.08.036 Domain Users   61 mai 22 10:59 tabuada.sh
+-rwxr-xr-x 1 2023.1.08.036 Domain Users  250 mai 22 12:30 testeCrases.sh
+-rwxr-xr-x 1 2023.1.08.036 Domain Users  162 mai 22 12:08 testeVariaveisAmbiente.sh
+-rwxr-xr-x 1 2023.1.08.036 Domain Users  102 mai 22 11:56 testeVariaveis.sh
