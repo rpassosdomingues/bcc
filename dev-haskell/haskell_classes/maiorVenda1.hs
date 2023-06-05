@@ -37,7 +37,3 @@ maiorVenda :: Int -> Int
 maiorVenda 0 = vendas 0
 maiorVenda d = maior (vendas d) (maiorVenda (d-1))
 
---diaMaiorVenda :: Int -> Int
---diaMaiorVenda 0 = 0
---diaMaiorVenda d = 
-

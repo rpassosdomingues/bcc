@@ -7,6 +7,6 @@ toUpper c
   | isLower c = chr (ord c - ord 'a' + ord 'A')
   | otherwise = c
   where
-    isLower :: Char -> Bool
+    isLower :: 
     isLower c = c >= 'a' && c <= 'z'
 
