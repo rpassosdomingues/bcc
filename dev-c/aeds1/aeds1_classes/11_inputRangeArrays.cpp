@@ -47,7 +47,7 @@ int main(void) {
 
   // operations with arrays
   for(int i = 0; i < LENGHT; i++){
-    if (array1[i] > lowerLimit || array1[i] < upperLimit) {
+    if (array1[i] > lowerLimit && array1[i] < upperLimit) {
       array2[i] = array1[i];
       qtd++;
     }
