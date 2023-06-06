@@ -1,14 +1,14 @@
 /*
- * Autor: Rafael Passos Domingues
- * RA: 2023.1.08.036
+ * Author: Rafael Passos Domingues
+ * Student ID: 2023.1.08.036
  * 
- * Exercício 1: Encontrar o maior e o menor valor do vetor e indicar suas posições.
- * Exercício 2: Buscar no vetor um valor informado pelo usuário. Caso seja encontrado, em que posição do vetor o valor se encontra?
- * Exercício 3: Contar o número de ocorrências de um valor fornecido pelo usuário.
- * Exercício 4: Em um vetor, multiplique os valores pares por 2 e atribua zero aos valores ímpares.
- * Exercício 5: Incremente os valores de um vetor por um fator informado pelo usuário, limitando os resultados no intervalo entre 0 e 255.
+ * Exercise 1: Find the largest and smallest value in the array and indicate their positions.
+ * Exercise 2: Search for a value provided by the user in the array. If found, indicate the position of the value in the array.
+ * Exercise 3: Count the number of occurrences of a value provided by the user.
+ * Exercise 4: Multiply the even values in an array by 2 and assign zero to the odd values.
+ * Exercise 5: Increment the values in an array by a factor provided by the user, limiting the results to the range between 0 and 255.
  * 
- * Criado em 30 de Maio de 2023
+ * Created on May 30, 2023
  */
 
 #include <iostream>
@@ -17,85 +17,87 @@ using namespace std;
 
 int main(void) {
   
-  int i, tamanho = 10;
-  int iMax, iMin, iProcurado;
-  int maiorValor=-1, menorValor=1000;
-  int valorProcurado, valorRepetido, qtdOcorrencias=0, incremento;
+  int i, size = 10;
+  int iMax, iMin, iSearch;
+  int largestValue = -1, smallestValue = 1000;
+  int searchValue, repeatedValue, occurrencesCount = 0, increment;
 
-  int vetor1[tamanho] = {40, 11, 27, 30, 4, 25, 16, 27, 87, 9};
-  int vetor2[tamanho] = {0, 0, 1, 1, 1, 2, 3, 3, 4, 5};
-  int vetor3[tamanho] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  int vetor4[tamanho] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  int array1[size] = {40, 11, 27, 30, 4, 25, 16, 27, 87, 9};
+  int array2[size] = {0, 0, 1, 1, 1, 2, 3, 3, 4, 5};
+  int array3[size] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  int array4[size] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
   
-  // Exercício 1
-  cout << "Exercício 1 \n";
-  for (i = 0; i < tamanho; i++) {
-    if (vetor1[i] > vetor1[i+1] && maiorValor < vetor1[i]) {
-      maiorValor = vetor1[i];
+  // Exercise 1
+  cout << "Exercise 1 \n";
+  for (i = 0; i < size; i++) {
+    if (array1[i] > array1[i+1] && largestValue < array1[i]) {
+      largestValue = array1[i];
       iMax = i;
     } else
-        if (vetor1[i] < vetor1[i+1] && menorValor > vetor1[i]) {
-          menorValor = vetor1[i];
+        if (array1[i] < array1[i+1] && smallestValue > array1[i]) {
+          smallestValue = array1[i];
           iMin = i;
         }
   }
-  cout << "O maior valor é: " << maiorValor << " e se encontra na " << iMax << "ª posição do vetor." << endl;
-  cout << "O menor valor é: " << menorValor << " e se encontra na " << iMin << "ª posição do vetor." << endl;
+  cout << "The largest value is: " << largestValue << " and it is located at position " << iMax << " in the array." << endl;
+  cout << "The smallest value is: " << smallestValue << " and it is located at position " << iMin << " in the array." << endl;
   cout << "\n\n";
 
-  // Exercício 2
-  cout << "Exercício 2 \n";
-  cout << "Digite um valor para procurar no vetor: ";
-  cin >> valorProcurado;
-  for (i = 0; i < tamanho; i++) {
-    if (valorProcurado == vetor1[i]) {
-      iProcurado = i;
+  // Exercise 2
+  cout << "Exercise 2 \n";
+  cout << "Enter a value to search in the array: ";
+  cin >> searchValue;
+  for (i = 0; i < size; i++) {
+    if (searchValue == array1[i]) {
+      iSearch = i;
     }
   }
-  cout << "O valor foi encontrado na " << iProcurado << "ª posição do vetor." << endl;
+  cout << "The value was found at position " << iSearch << " in the array." << endl;
   cout << "\n\n";
 
-  // Exercício 3
-  cout << "Exercício 3 \n";
-  cout << "Digite um valor para procurar a qtd de suas ocorrências no vetor: ";
-  cin >> valorRepetido;
-  for (i = 0; i < tamanho; i++) {
-    if (valorRepetido == vetor2[i]) {
-      qtdOcorrencias++;
+  // Exercise 3
+  cout << "Exercise 3 \n";
+  cout << "Enter a value to count its occurrences in the array: ";
+  cin >> repeatedValue;
+  for (i = 0; i < size; i++) {
+    if (repeatedValue == array2[i]) {
+      occurrencesCount++;
     }
   }
-  cout << "O valor aparece " << qtdOcorrencias << " vezes no vetor." << endl;
+  cout << "The value appears " << occurrencesCount << " times in the array." << endl;
   cout << "\n\n";
 
-  // Exercício 4
-  cout << "Exercício 4 \n";
-  for (i = 0; i < tamanho; i++) {
-    if (vetor3[i] % 2 == 0) {
-      vetor3[i] = 2 * vetor3[i];
+
+
+  // Exercise 4
+  cout << "Exercise 4 \n";
+  for (i = 0; i < size; i++) {
+    if (array3[i] % 2 == 0) {
+      array3[i] = 2 * array3[i];
     } else
-        if (vetor3[i] % 2 != 0) {
-          vetor3[i] = 0;
+        if (array3[i] % 2 != 0) {
+          array3[i] = 0;
         }
   }
-  cout << "O vetor modificado é: ";
-  for (i = 0; i < tamanho; i++) {
-    cout << vetor3[i] << " ";
+  cout << "The modified array is: ";
+  for (i = 0; i < size; i++) {
+    cout << array3[i] << " ";
   }
 
-  // Exercício 5
-  cout << "Exercício 5 \n";
-  cout << "Digite um incremento [0 < incremento < 255]: ";
-  cin >> incremento;
-  while (incremento < 0 || incremento > 255) {
-    cout << "Desculpe, há algo errado... Tente de novo: ";
-    cin >> incremento;
+  // Exercise 5
+  cout << "Exercise 5 \n";
+  cout << "Enter an increment [0 < increment < 255]: ";
+  cin >> increment;
+  while (increment < 0 || increment > 255) {
+    cout << "Sorry, something is wrong... Try again: ";
+    cin >> increment;
   }
-  for (i = 0; i < tamanho; i++) {
-    vetor4[i] += incremento;
+  for (i = 0; i < size; i++) {
+    array4[i] += increment;
   }
-  cout << "O vetor incrementado é: ";
-  for (i = 0; i < tamanho; i++) {
-    cout << vetor4[i] << " ";
+  cout << "The incremented array is: ";
+  for (i = 0; i < size; i++) {
+    cout << array4[i] << " ";
   }
 
   cout << "\n\n";
