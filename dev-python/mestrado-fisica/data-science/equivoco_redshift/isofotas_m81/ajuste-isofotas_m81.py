@@ -8,7 +8,7 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-#import astropy
+import astropy
 
 from astropy.modeling.models import Gaussian2D
 from astropy.io import fits
@@ -17,7 +17,7 @@ from astropy.wcs import WCS
 
 #!pip3 install photutils
 
-#import photutils
+import photutils
 
 from photutils.datasets import make_noise_image
 from photutils.isophote import EllipseGeometry
