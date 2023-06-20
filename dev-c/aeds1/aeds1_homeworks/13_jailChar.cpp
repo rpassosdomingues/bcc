@@ -1,14 +1,5 @@
 /* 
-  
-  Nestes exercícios, considere que o vetor representa um conjunto de valores, portanto o vetor terá um 
-  comprimento máximo de valores, mas poderá armazenar alguma quantidade entre zero e o tamanho.
-  
-  vetor[comprimento] = {5,3,4,6,9,5,4,?,?,?}
-  
-  Exercício 1: Faça um programa que elimine do vetor os valores repetidos, deixando apenas um valor encontrado no vetor.
-  Exercício 2: Faça um programa que, a partir de 2 vetores com valores não repetidos construa um terceiro vetor com a união dos vetores.
-  Exercício 3: Faça um programa que, a partir de 2 vetores com valores não-repetidos, construa um terceiro vetor com a interseção dos vetores.
-  
+
   [Feito] Exercício 1: Faça um código para juntar o nome e sobrenome em um nome completo.
   [Feito] Exercício 2: Faça um código para verificar se duas cadeias de caracteres são iguais.
   [Feito] Exercício 3: Faça um código para verificar se um nome está contido num nome completo. [Aqui vale usar uma variável lógica FLAG]
