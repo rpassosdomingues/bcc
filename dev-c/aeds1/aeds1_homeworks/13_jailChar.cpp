@@ -1,10 +1,10 @@
 /* 
 
-  [Feito] Exercício 1: Faça um código para juntar o nome e sobrenome em um nome completo.
-  [Feito] Exercício 2: Faça um código para verificar se duas cadeias de caracteres são iguais.
-  [Feito] Exercício 3: Faça um código para verificar se um nome está contido num nome completo. [Aqui vale usar uma variável lógica FLAG]
-  Exercício 4: Faça um código para coletar todas as letras de um nome completo em maiúsculas.
-  Exercício 5: Faça um código para retirar os acentos de uma variável que armazena o número do CPF (com?) caracteres.
+  [Done] Exercise 1: Write a code to join a first and last name into a complete name.
+  [Done] Exercise 2: Write a code to check if two strings are equal.
+  [Done] Exercise 3: Write code to check if a name is contained in a full name. [Here you can use a logical variable FLAG].
+Exercise 4: Make a code to collect all the letters of a full name in uppercase.
+Exercise 5: Write a code to remove accents from a variable that stores the CPF number (with?) characters.
 
 */
 
