@@ -5,14 +5,16 @@
 #include<iostream>
 #include<time.h>
 
+#define LENGHT 100
+
 using namespace std;
 
 int main(void){
-
+  
   srand(time(NULL));   // Initialization, should only be called once.
 
-  int lenght=99, start=0, random;
-  int range = lenght - start + 1;
+  int start = 0, lenght = 9, range;
+  int random[LENGHT];
 
   ofstream outputFile("outputFile.txt");
 
@@ -21,10 +23,24 @@ int main(void){
     return 1;
   }
   
+  /*
+  cout << "Enter a lenght[<100] of array: ";
+  cin >> lenght;
+  while (lenght > LENGHT) {
+    cout << "Sorry, try again: ";
+    cin >> lenght;
+  }
+  */
+  
+  range = lenght - start + 1;
+
   for (int i = start; i < range; i++) {
-    random = start + rand() % range;
-    //outputFile << random << endl;
-    outputFile << random << " ";
+    random[i] = start + rand() % range;
+    random[i+1] = start + rand() % range;
+    if (random[i+1] == random[i]) {
+      random[i+1] = start + rand() % range;
+    }
+    outputFile << random[i] << " ";
   }
   outputFile.close();
   cout << "\n File filled successfully." << endl;
