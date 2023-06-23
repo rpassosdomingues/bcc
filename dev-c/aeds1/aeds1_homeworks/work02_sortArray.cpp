@@ -9,23 +9,22 @@ int main(void) {
 
   srand(time(NULL));
 
-  int length = 9, start = 0;
+  int length = 10, start = 0;
   int range = length - start + 1;
 
   int random[length];
 
-  ofstream outputFile("outputFile.txt");
+  ofstream outputFile("randomArrayFile.txt");
 
   if (!outputFile.is_open()) {
-    cout << "\n Failed to create/open file." << endl;
+    cout << "\n Failed to create file." << endl;
     return 1;
   }
 
   random[0] = start + rand() % range;
-  outputFile << random[0] << " ";
+  outputFile << length << " " << random[0] << " ";
 
-  int i = 0;
-  i++;
+  int i = 1;
   while (i < length) {
     random[i] = start + rand() % range;
     bool isRepeated = false;

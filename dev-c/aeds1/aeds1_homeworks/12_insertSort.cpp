@@ -2,36 +2,54 @@
   This project sort vector with inserction sort method.
 */
 
-#include <iostream>
+#include<iostream>
+#include<fstream>
 
 using namespace std;
 
 int main(void){
   
-  int lenght = 10, handle;
-  int array[lenght] = {9, 0, 8, 1, 7, 2, 6, 3, 5, 4};
-
-  cout << "\n Original array: ";
-  for(int start = 0; start < lenght; start++){
-    cout << array[start] << " ";
+  ifstream inputFile("randomArrayFile.txt");
+  if (!inputFile.is_open()) {
+    cout << "\n File not found. \n";
+    return 1;
   }
+  
+  int length;
+  inputFile >> length;
+
+  int array[length];
+  inputFile >> array[0];
+  
+  int i,j;
+  for (i = 1; i < length; i++) {
+    inputFile >> array[i];
+  }
+  inputFile.close();
+
+  cout << "\n Original array: { ";
+  for (int i = 0; i < length; i++) {
+    cout << array[i] << " ";
+  }
+  cout << "}\n";
 
   // Inserction Sort
-  for(int start = 0; start < lenght; start++){
-    for(int next = start + 1; next < lenght; next++){
-      handle = array[next];
-      if(array[start] > handle){
-        array[next] = array[start];
-        array[start] = handle;
+  int handle;
+  for(i = 0; i < length; i++){
+    for(j = i + 1; j < length; j++){
+      handle = array[j];
+      if(array[i] > handle){
+        array[j] = array[i];
+        array[i] = handle;
       }
     }
   }
 
-  cout << "\n Sort array: ";
-  for(int start = 0; start < lenght; start++){
-    cout << array[start] << " ";
+  cout << "\n Sort array: { ";
+  for(i = 0; i < length; i++){
+    cout << array[i] << " ";
   }
-  cout << "\n\n";
+  cout << "}\n\n";
 
   return 0;
 }

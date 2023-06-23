@@ -1,15 +1,14 @@
 /*
-  This project sort vector with bubble sort method.
+  This project sort vector with selection sort method.
 */
 
 #include<iostream>
 #include<fstream>
 
-
 using namespace std;
 
 int main(void){
-
+  
   ifstream inputFile("randomArrayFile.txt");
   if (!inputFile.is_open()) {
     cout << "\n File not found. \n";
@@ -34,20 +33,21 @@ int main(void){
   }
   cout << "}\n";
 
-  // Bubble Sort
-  int tmp;
-  for (i = 0; i < length; i++) {
-    for (j = i + 1; j < length; j++) {
-      if (array[i] > array[j]) {
+  // Selection Sort
+  int handle, tmp;
+  for(i = 0; i < length; i++){
+    for(j = i + 1; j < length; j++){
+      handle = array[j];
+      if(handle < array[i]){
         tmp = array[i];
-        array[i] = array[j];
+        array[i] = handle;
         array[j] = tmp;
       }
     }
   }
 
   cout << "\n Sort array: { ";
-  for (i = 0; i < length; i++) {
+  for(i = 0; i < length; i++){
     cout << array[i] << " ";
   }
   cout << "}\n\n";
