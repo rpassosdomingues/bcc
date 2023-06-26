@@ -34,16 +34,18 @@ int main(void){
   cout << "}\n";
 
   // Selection Sort
-  int handle, tmp;
-  for(i = 0; i < length; i++){
-    for(j = i + 1; j < length; j++){
-      handle = array[j];
-      if(handle < array[i]){
-        tmp = array[i];
-        array[i] = handle;
-        array[j] = tmp;
+  for (i = 0; i < length - 1; i++) {
+    int minIndex = i;
+
+    for (j = i + 1; j < length; j++) {
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
       }
     }
+
+    int swap = array[i];
+    array[i] = array[minIndex];
+    array[minIndex] = swap;
   }
 
   cout << "\n Sort array: { ";
