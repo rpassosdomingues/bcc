@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 
   int length;
-  for (length = 100; length < 1000; length += 100) {
+  for (length = 100; length <= 1000; length += 100) {
 
     // Generate a random array without repetition
     srand(time(NULL));
