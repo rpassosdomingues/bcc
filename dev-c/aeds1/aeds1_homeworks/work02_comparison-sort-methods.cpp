@@ -83,16 +83,24 @@ void randomArrayGenerator(int array[], int start, int length) {
 }
 
 // Function to save results to a CSV file
-void saveResultsToFile(const string& filename, const int sizes[], const int randomBubbleUsages[], const int increasingBubbleUsages[], const int decreasingBubbleUsages[], const int randomInsertionUsages[], const int increasingInsertionUsages[], const int decreasingInsertionUsages[], const int randomSelectionUsages[], const int increasingSelectionUsages[], const int decreasingSelectionUsages[], int size) {
+void saveResultsToFile(const string& filename, const int sizes[], const int randomBubbleUsages[],
+                       const int increasingBubbleUsages[], const int decreasingBubbleUsages[],
+                       const int randomInsertionUsages[], const int increasingInsertionUsages[],
+                       const int decreasingInsertionUsages[], const int randomSelectionUsages[],
+                       const int increasingSelectionUsages[], const int decreasingSelectionUsages[],
+                       int size) {
   ofstream file(filename);
   if (!file.is_open()) {
     cout << "Failed to create the file." << endl;
     return;
   }
 
-  file << "Array Size,Random Bubble Sort Usage,Increasing Bubble Sort Usage,Decreasing Bubble Sort Usage,Random Insertion Sort Usage,Increasing Insertion Sort Usage,Decreasing Insertion Sort Usage,Random Selection Sort Usage,Increasing Selection Sort Usage,Decreasing Selection Sort Usage" << endl;
+  file << "Array Size, Random Bubble Sort Usage, Increasing Bubble Sort Usage, Decreasing Bubble Sort Usage, Random Insertion Sort Usage, Increasing Insertion Sort Usage, Decreasing Insertion Sort Usage, Random Selection Sort Usage, Increasing Selection Sort Usage, Decreasing Selection Sort Usage" << endl;
   for (int i = 0; i < size; i++) {
-    file << sizes[i] << "," << randomBubbleUsages[i] << "," << increasingBubbleUsages[i] << "," << decreasingBubbleUsages[i] << "," << randomInsertionUsages[i] << "," << increasingInsertionUsages[i] << "," << decreasingInsertionUsages[i] << "," << randomSelectionUsages[i] << "," << increasingSelectionUsages[i] << "," << decreasingSelectionUsages[i] << endl;
+    file << sizes[i] << "," << randomBubbleUsages[i] << "," << increasingBubbleUsages[i] << ","
+    << decreasingBubbleUsages[i] << "," << randomInsertionUsages[i] << "," << increasingInsertionUsages[i]
+    << "," << decreasingInsertionUsages[i] << "," << randomSelectionUsages[i] << ","
+    << increasingSelectionUsages[i] << "," << decreasingSelectionUsages[i] << endl;
   }
 
   file.close();
@@ -190,7 +198,10 @@ int main(void) {
   }
 
   // Save results to a file
-  saveResultsToFile("sort_usages.csv", sizes, randomBubbleUsages, increasingBubbleUsages, decreasingBubbleUsages, randomInsertionUsages, increasingInsertionUsages, decreasingInsertionUsages, randomSelectionUsages, increasingSelectionUsages, decreasingSelectionUsages, numSizes);
+  saveResultsToFile("sort_usages.csv", sizes, randomBubbleUsages, increasingBubbleUsages,
+                     decreasingBubbleUsages, randomInsertionUsages, increasingInsertionUsages,
+                     decreasingInsertionUsages, randomSelectionUsages, increasingSelectionUsages,
+                     decreasingSelectionUsages, numSizes);
   
   cout << "File 'sort_usages.csv' created successfully." << endl;
   
