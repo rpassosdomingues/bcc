@@ -136,6 +136,8 @@ def main():
                       randomSelectionUsages, increasingSelectionUsages, decreasingSelectionUsages)
 
     # Read the CSV File
+    #file_path = "<path_to_your_file>/your_file.csv"
+    #data = pd.read_csv(file_path)
     data = pd.read_csv("sort_usages.csv")
 
     # Extract the data of columns
