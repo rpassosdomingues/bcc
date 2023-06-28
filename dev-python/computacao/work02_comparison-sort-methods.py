@@ -61,9 +61,9 @@ def saveResultsToFile(filename, sizes, randomBubbleUsages, increasingBubbleUsage
 
 # Main function
 def main():
-    start = 1
-    end = 10
-    step = 1
+    start = 100
+    end = 10000
+    step = 100
     numSizes = int((end - start) / step) + 1
 
     sizes = []
