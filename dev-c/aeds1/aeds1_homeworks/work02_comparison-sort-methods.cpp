@@ -100,9 +100,9 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
 
 int main(void) {
 
-  const int start = 1;
-  const int end = 10;
-  const int step = 1;
+  const int start = 10;
+  const int end = 100;
+  const int step = 10;
   const int numSizes = (end - start) / step + 1;
 
   int sizes[numSizes];
