@@ -194,11 +194,7 @@ def main():
     plt.figure(figsize=(10, 9))
     """
 
-    # Plot the graphics
-    plt.figure(figsize=(10, 9))
-
     # Bubble Sort Graph
-    plt.subplot(3, 1, 1)
     plt.scatter(sizes, randomBubbleUsages, marker='o', label="Random")
     plt.scatter(sizes, increasingBubbleUsages, marker='x', label="Increasing")
     plt.scatter(sizes, decreasingBubbleUsages, marker='^', label="Decreasing")
@@ -217,7 +213,6 @@ def main():
     plt.figure(figsize=(10, 9))
 
     # Insertion Sort Graph
-    plt.subplot(3, 1, 2)
     plt.scatter(sizes, randomInsertionUsages, marker='o', label="Random")
     plt.scatter(sizes, increasingInsertionUsages, marker='x', label="Increasing")
     plt.scatter(sizes, decreasingInsertionUsages, marker='^', label="Decreasing")
@@ -236,7 +231,6 @@ def main():
     plt.figure(figsize=(10, 9))
 
     # Selection Sort Graph
-    plt.subplot(3, 1, 3)
     plt.scatter(sizes, randomSelectionUsages, marker='o', label="Random")
     plt.scatter(sizes, increasingSelectionUsages, marker='x', label="Increasing")
     plt.scatter(sizes, decreasingSelectionUsages, marker='^', label="Decreasing")
