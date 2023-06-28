@@ -1,4 +1,4 @@
-Array Size , Random Bubble Sort Usage , Increasing Bubble Sort Usage , Decreasing Bubble Sort Usage , Random Insertion Sort Usage , Increasing Insertion Sort Usage , Decreasing Insertion Sort Usage , Random Selection Sort Usage , Increasing Selection Sort Usage , Decreasing Selection Sort Usage
+Array Size,Random Bubble Sort Usage,Increasing Bubble Sort Usage,Decreasing Bubble Sort Usage,Random Insertion Sort Usage,Increasing Insertion Sort Usage,Decreasing Insertion Sort Usage,Random Selection Sort Usage,Increasing Selection Sort Usage,Decreasing Selection Sort Usage
 1,0,0,0,0,0,0,0,0,0
 2,1,1,1,1,1,1,1,1,1
 3,3,3,3,2,2,2,3,3,3
