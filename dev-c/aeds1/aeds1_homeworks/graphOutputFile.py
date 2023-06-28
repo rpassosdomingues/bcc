@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the CSV File
-data = pd.read_csv("sort_usages.csv")
+data = pd.read_csv("output/sort_usages.csv")
 
 # Extract the data of columns
 sizes = data["Array Size"]
