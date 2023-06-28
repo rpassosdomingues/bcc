@@ -155,7 +155,8 @@ def main():
 
     # Plot the graphics
     plt.figure(figsize=(10, 9))
-
+    
+    """
     # Bubble Sort Graph
     plt.subplot(3, 1, 1)
     plt.plot(sizes, randomBubbleUsages, label="Random")
@@ -191,12 +192,16 @@ def main():
 
     # Plot the graphics
     plt.figure(figsize=(10, 9))
+    """
+
+    # Plot the graphics
+    plt.figure(figsize=(10, 9))
 
     # Bubble Sort Graph
     plt.subplot(3, 1, 1)
-    plt.plot(sizes, randomBubbleUsages, label="Random")
-    plt.plot(sizes, increasingBubbleUsages, label="Increasing")
-    plt.plot(sizes, decreasingBubbleUsages, label="Decreasing")
+    plt.scatter(sizes, randomBubbleUsages, marker='o', label="Random")
+    plt.scatter(sizes, increasingBubbleUsages, marker='x', label="Increasing")
+    plt.scatter(sizes, decreasingBubbleUsages, marker='^', label="Decreasing")
     plt.title("Bubble Sort")
     plt.xlabel("Array Size")
     plt.ylabel("Number of Iterations")
@@ -213,9 +218,9 @@ def main():
 
     # Insertion Sort Graph
     plt.subplot(3, 1, 2)
-    plt.plot(sizes, randomInsertionUsages, label="Random")
-    plt.plot(sizes, increasingInsertionUsages, label="Increasing")
-    plt.plot(sizes, decreasingInsertionUsages, label="Decreasing")
+    plt.scatter(sizes, randomInsertionUsages, marker='o', label="Random")
+    plt.scatter(sizes, increasingInsertionUsages, marker='x', label="Increasing")
+    plt.scatter(sizes, decreasingInsertionUsages, marker='^', label="Decreasing")
     plt.title("Insertion Sort")
     plt.xlabel("Array Size")
     plt.ylabel("Number of Iterations")
@@ -232,9 +237,9 @@ def main():
 
     # Selection Sort Graph
     plt.subplot(3, 1, 3)
-    plt.plot(sizes, randomSelectionUsages, label="Random")
-    plt.plot(sizes, increasingSelectionUsages, label="Increasing")
-    plt.plot(sizes, decreasingSelectionUsages, label="Decreasing")
+    plt.scatter(sizes, randomSelectionUsages, marker='o', label="Random")
+    plt.scatter(sizes, increasingSelectionUsages, marker='x', label="Increasing")
+    plt.scatter(sizes, decreasingSelectionUsages, marker='^', label="Decreasing")
     plt.title("Selection Sort")
     plt.xlabel("Array Size")
     plt.ylabel("Number of Iterations")
@@ -243,7 +248,7 @@ def main():
     # Adjust subplots spacing
     plt.tight_layout()
 
-    # Show the graphs
+    # Show the third graph
     plt.show()
 
 # Run the main function
