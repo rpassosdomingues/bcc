@@ -90,7 +90,7 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
     return;
   }
 
-  file << "Array Size | Random Bubble Sort Usage | Increasing Bubble Sort Usage | Decreasing Bubble Sort Usage | Random Insertion Sort Usage | Increasing Insertion Sort Usage | Decreasing Insertion Sort Usage | Random Selection Sort Usage | Increasing Selection Sort Usage | Decreasing Selection Sort Usage" << endl;
+  file << "Array Size , Random Bubble Sort Usage , Increasing Bubble Sort Usage , Decreasing Bubble Sort Usage , Random Insertion Sort Usage , Increasing Insertion Sort Usage , Decreasing Insertion Sort Usage , Random Selection Sort Usage , Increasing Selection Sort Usage , Decreasing Selection Sort Usage" << endl;
   for (int i = 0; i < size; i++) {
     file << sizes[i] << "," << randomBubbleUsages[i] << "," << increasingBubbleUsages[i] << "," << decreasingBubbleUsages[i] << "," << randomInsertionUsages[i] << "," << increasingInsertionUsages[i] << "," << decreasingInsertionUsages[i] << "," << randomSelectionUsages[i] << "," << increasingSelectionUsages[i] << "," << decreasingSelectionUsages[i] << endl;
   }
