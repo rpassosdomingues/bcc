@@ -51,11 +51,11 @@ void selectionSort(int array[], int length, int& selectionUsage) {
       if (array[j] < array[minIndex]) {
         minIndex = j;
       }
-      selectionUsage += 2;
     }
     int swap = array[i];
     array[i] = array[minIndex];
     array[minIndex] = swap;
+    selectionUsage += 5;
   }
 }
 
@@ -111,9 +111,9 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
 
 int main(void) {
 
-  const int start = 10;
+  const int start = 1;
   const int end = 100;
-  const int step = 10;
+  const int step = 1;
   const int numSizes = (end - start) / step + 1;
 
   int sizes[numSizes];
