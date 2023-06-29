@@ -74,7 +74,7 @@ def main():
     # Adjust subplots spacing
     plt.tight_layout()
    
-    """
+    
     # Plot the graphics
     plt.figure(figsize=(10, 9))
 
@@ -122,7 +122,6 @@ def main():
     plt.xlabel("Array Size")
     plt.ylabel("Number of Iterations")
     plt.legend()
-    """
 
     # Adjust subplots spacing
     plt.tight_layout()
