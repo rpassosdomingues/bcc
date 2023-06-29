@@ -111,9 +111,9 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
 
 int main(void) {
 
-  const int start = 10;
-  const int end = 100;
-  const int step = 10;
+  const int start = 1;
+  const int end = 1000;
+  const int step = 1;
   const int numSizes = (end - start) / step + 1;
 
   int sizes[numSizes];
@@ -201,10 +201,11 @@ int main(void) {
   }
 
   // Save results to a file
-  saveResultsToFile("sort_usages.csv", sizes, randomBubbleUsages, increasingBubbleUsages,
-                     decreasingBubbleUsages, randomInsertionUsages, increasingInsertionUsages,
-                     decreasingInsertionUsages, randomSelectionUsages, increasingSelectionUsages,
-                     decreasingSelectionUsages, numSizes);
+  saveResultsToFile("sort_usages.csv", sizes,
+                     randomBubbleUsages, increasingBubbleUsages, decreasingBubbleUsages,
+                     randomInsertionUsages, increasingInsertionUsages, decreasingInsertionUsages,
+                     randomSelectionUsages, increasingSelectionUsages, decreasingSelectionUsages,
+                     numSizes);
   
   cout << "File 'sort_usages.csv' created successfully." << endl;
   
