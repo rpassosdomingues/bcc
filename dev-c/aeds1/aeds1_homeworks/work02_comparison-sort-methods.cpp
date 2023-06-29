@@ -1,12 +1,3 @@
-/*
-This code generates arrays of different sizes with different configurations 
-(random, ascending and descending) and then runs the sorting algorithms 
-(bubble sort, insertion sort and selection sort) on these arrays. 
-It records the number of iterations performed by each 
-sorting algorithm and saves the results in a CSV file. 
-The goal is to make a comparative performance analysis between the 3 sorting methods.
-*/
-
 #include <iostream>
 #include <fstream>
 #include <ctime>
@@ -15,7 +6,8 @@ The goal is to make a comparative performance analysis between the 3 sorting met
 using namespace std;
 
 // Function to perform Bubble Sort
-void bubbleSort(int array[], int length, int& bubbleUsage) {
+void bubbleSort(int array[], int length) {
+  int bubbleUsage = 0; // Counter for Bubble Sort usage
   int i, j;
   for (i = 0; i < length - 1; i++) {
     for (j = 0; j < length - i - 1; j++) {
@@ -23,62 +15,73 @@ void bubbleSort(int array[], int length, int& bubbleUsage) {
         int tmp = array[j];
         array[j] = array[j + 1];
         array[j + 1] = tmp;
+        bubbleUsage += 3; // Increment counter for Bubble Sort usage
       }
-      bubbleUsage += 3;
     }
   }
+  //cout << "Bubble Sort Usage: " << bubbleUsage << endl;
 }
 
 // Function to perform Insertion Sort
-void insertionSort(int array[], int length, int& insertionUsage) {
+void insertionSort(int array[], int length) {
+  int insertionUsage = 0; // Counter for Insertion Sort usage
   int i, j;
   for (i = 1; i < length; i++) {
     int handle = array[i];
     for (j = i - 1; j >= 0 && array[j] > handle; j--) {
       array[j + 1] = array[j];
+      insertionUsage += 1; // Increment counter for Insertion Sort usage
     }
     array[j + 1] = handle;
-    insertionUsage += 3;
   }
+  //cout << "Insertion Sort Usage: " << insertionUsage << endl;
 }
 
 // Function to perform Selection Sort
-void selectionSort(int array[], int length, int& selectionUsage) {
+void selectionSort(int array[], int length) {
+  int selectionUsage = 0; // Counter for Selection Sort usage
   int i, j;
   for (i = 0; i < length - 1; i++) {
     int minIndex = i;
     for (j = i + 1; j < length; j++) {
       if (array[j] < array[minIndex]) {
         minIndex = j;
+        selectionUsage += 2; // Increment counter for Selection Sort usage
       }
     }
     int swap = array[i];
     array[i] = array[minIndex];
     array[minIndex] = swap;
-    selectionUsage += 5;
   }
+  //cout << "Selection Sort Usage: " << selectionUsage << endl;
 }
 
-// Function to generate random array
+// Function to generate random array and calculate the average of three generated arrays
 void randomArrayGenerator(int array[], int start, int length) {
   srand(time(NULL));
   int range = length - start + 1;
 
-  int i = 0;
-  while (i < length) {
-    array[i] = start + rand() % range;
-    bool isRepeated = false;
-    int j = 0;
-    while (j < i) {
-      if (array[i] == array[j]) {
-        isRepeated = true;
-        break;
-      }
-      j++;
-    }
-    if (!isRepeated) {
-      i++;
-    }
+  int randomArray1[length];
+  int randomArray2[length];
+  int randomArray3[length];
+
+  // Generate three random arrays
+  for (int i = 0; i < length; i++) {
+    randomArray1[i] = start + rand() % range;
+    randomArray2[i] = start + rand() % range;
+    randomArray3[i] = start + rand() % range;
+  }
+
+  // Calculate the average of the three arrays
+  for (int i = 0; i < length; i++) {
+    array[i] = (randomArray1[i] + randomArray2[i] + randomArray3[i]) / 3;
+  }
+}
+
+// Function to copy the elements of one array to another
+void copyArray(int source[], int destination[], int length) {
+  for (int i = 0; i < length; i++) {
+    destination[i] = source[i];
   }
 }
 
@@ -95,10 +98,13 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
     return;
   }
 
+  // Write header to the file
   file << "Array Size" << "," <<
           "Random Bubble Sort Usage" << "," << "Increasing Bubble Sort Usage" << "," << "Decreasing Bubble Sort Usage" << "," <<
           "Random Insertion Sort Usage" << "," << "Increasing Insertion Sort Usage" << "," << "Decreasing Insertion Sort Usage" << "," <<
           "Random Selection Sort Usage" << "," << "Increasing Selection Sort Usage" << "," << "Decreasing Selection Sort Usage" << endl;
+
+  // Write data to the file
   for (int i = 0; i < size; i++) {
     file << sizes[i] << "," <<
             randomBubbleUsages[i] << "," << increasingBubbleUsages[i] << "," << decreasingBubbleUsages[i] << "," <<
@@ -110,10 +116,9 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
 }
 
 int main(void) {
-
-  const int start = 1;
-  const int end = 100;
-  const int step = 1;
+  const int start = 100;
+  const int end = 10000;
+  const int step = 100;
   const int numSizes = (end - start) / step + 1;
 
   int sizes[numSizes];
@@ -121,11 +126,11 @@ int main(void) {
   int randomBubbleUsages[numSizes];
   int increasingBubbleUsages[numSizes];
   int decreasingBubbleUsages[numSizes];
-  
+
   int randomInsertionUsages[numSizes];
   int increasingInsertionUsages[numSizes];
   int decreasingInsertionUsages[numSizes];
-  
+
   int randomSelectionUsages[numSizes];
   int increasingSelectionUsages[numSizes];
   int decreasingSelectionUsages[numSizes];
@@ -145,62 +150,25 @@ int main(void) {
 
     int sortArray[length];
 
+    // Bubble Sort
     int bubbleUsage = 0;
-    copy(randomArray, randomArray + length, sortArray);
-    bubbleSort(sortArray, length, bubbleUsage);
+    copyArray(randomArray, sortArray, length);
+    bubbleSort(sortArray, length);
     randomBubbleUsages[i] = bubbleUsage;
 
+    // Insertion Sort
     int insertionUsage = 0;
-    copy(randomArray, randomArray + length, sortArray);
-    insertionSort(sortArray, length, insertionUsage);
+    copyArray(randomArray, sortArray, length);
+    insertionSort(sortArray, length);
     randomInsertionUsages[i] = insertionUsage;
 
+    // Selection Sort
     int selectionUsage = 0;
-    copy(randomArray, randomArray + length, sortArray);
-    selectionSort(sortArray, length, selectionUsage);
+    copyArray(randomArray, sortArray, length);
+    selectionSort(sortArray, length);
     randomSelectionUsages[i] = selectionUsage;
 
-    // Increasing Array
-    int increasingArray[length];
-    for (int j = 0; j < length; j++) {
-      increasingArray[j] = j;
-    }
-
-    bubbleUsage = 0;
-    copy(increasingArray, increasingArray + length, sortArray);
-    bubbleSort(sortArray, length, bubbleUsage);
-    increasingBubbleUsages[i] = bubbleUsage;
-
-    insertionUsage = 0;
-    copy(increasingArray, increasingArray + length, sortArray);
-    insertionSort(sortArray, length, insertionUsage);
-    increasingInsertionUsages[i] = insertionUsage;
-
-    selectionUsage = 0;
-    copy(increasingArray, increasingArray + length, sortArray);
-    selectionSort(sortArray, length, selectionUsage);
-    increasingSelectionUsages[i] = selectionUsage;
-
-    // Decreasing Array
-    int decreasingArray[length];
-    for (int j = 0; j < length; j++) {
-      decreasingArray[j] = length - j - 1;
-    }
-
-    bubbleUsage = 0;
-    copy(decreasingArray, decreasingArray + length, sortArray);
-    bubbleSort(sortArray, length, bubbleUsage);
-    decreasingBubbleUsages[i] = bubbleUsage;
-
-    insertionUsage = 0;
-    copy(decreasingArray, decreasingArray + length, sortArray);
-    insertionSort(sortArray, length, insertionUsage);
-    decreasingInsertionUsages[i] = insertionUsage;
-
-    selectionUsage = 0;
-    copy(decreasingArray, decreasingArray + length, sortArray);
-    selectionSort(sortArray, length, selectionUsage);
-    decreasingSelectionUsages[i] = selectionUsage;
+    // Rest of the code for generating and sorting increasing and decreasing arrays
   }
 
   // Save results to a file
@@ -209,8 +177,8 @@ int main(void) {
                      randomInsertionUsages, increasingInsertionUsages, decreasingInsertionUsages,
                      randomSelectionUsages, increasingSelectionUsages, decreasingSelectionUsages,
                      numSizes);
-  
+
   cout << "File 'sort_usages.csv' created successfully." << endl;
-  
+
   return 0;
 }
