@@ -24,7 +24,7 @@ void bubbleSort(int array[], int length, int& bubbleUsage) {
         array[j] = array[j + 1];
         array[j + 1] = tmp;
       }
-      bubbleUsage++;
+      bubbleUsage += 3;
     }
   }
 }
@@ -38,7 +38,7 @@ void insertionSort(int array[], int length, int& insertionUsage) {
       array[j + 1] = array[j];
     }
     array[j + 1] = handle;
-    insertionUsage++;
+    insertionUsage += 3;
   }
 }
 
@@ -51,7 +51,7 @@ void selectionSort(int array[], int length, int& selectionUsage) {
       if (array[j] < array[minIndex]) {
         minIndex = j;
       }
-      selectionUsage++;
+      selectionUsage += 2;
     }
     int swap = array[i];
     array[i] = array[minIndex];
@@ -95,12 +95,15 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
     return;
   }
 
-  file << "Array Size, Random Bubble Sort Usage, Increasing Bubble Sort Usage, Decreasing Bubble Sort Usage, Random Insertion Sort Usage, Increasing Insertion Sort Usage, Decreasing Insertion Sort Usage, Random Selection Sort Usage, Increasing Selection Sort Usage, Decreasing Selection Sort Usage" << endl;
+  file << "Array Size" << "," <<
+          "Random Bubble Sort Usage" << "," << "Increasing Bubble Sort Usage" << "," << "Decreasing Bubble Sort Usage" << "," <<
+          "Random Insertion Sort Usage" << "," << "Increasing Insertion Sort Usage" << "," << "Decreasing Insertion Sort Usage" << "," <<
+          "Random Selection Sort Usage" << "," << "Increasing Selection Sort Usage" << "," << "Decreasing Selection Sort Usage" << endl;
   for (int i = 0; i < size; i++) {
-    file << sizes[i] << "," << randomBubbleUsages[i] << "," << increasingBubbleUsages[i] << ","
-    << decreasingBubbleUsages[i] << "," << randomInsertionUsages[i] << "," << increasingInsertionUsages[i]
-    << "," << decreasingInsertionUsages[i] << "," << randomSelectionUsages[i] << ","
-    << increasingSelectionUsages[i] << "," << decreasingSelectionUsages[i] << endl;
+    file << sizes[i] << "," <<
+            randomBubbleUsages[i] << "," << increasingBubbleUsages[i] << "," << decreasingBubbleUsages[i] << "," <<
+            randomInsertionUsages[i] << "," << increasingInsertionUsages[i] << "," << decreasingInsertionUsages[i] << "," <<
+            randomSelectionUsages[i] << "," << increasingSelectionUsages[i] << "," << decreasingSelectionUsages[i] << endl;
   }
 
   file.close();
@@ -108,9 +111,9 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
 
 int main(void) {
 
-  const int start = 1;
-  const int end = 10;
-  const int step = 1;
+  const int start = 10;
+  const int end = 100;
+  const int step = 10;
   const int numSizes = (end - start) / step + 1;
 
   int sizes[numSizes];
