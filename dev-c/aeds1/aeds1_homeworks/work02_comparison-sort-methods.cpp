@@ -56,33 +56,28 @@ int selectionSort(int array[], int length) {
   return selectionUsage;
 }
 
-// Function to generate random array and calculate the average of three generated arrays
-vector<int> randomArrayGenerator(int start, int length) {
+// Function to generate random array
+int randomArrayGenerator(int start, int length, int randomArray[]) {
+  
   srand(time(NULL));
+  
+  int i,j;
   int range = length - start + 1;
 
-  // Create three sequential arrays
-  vector<int> sequentialArray1(range);
-  vector<int> sequentialArray2(range);
-  vector<int> sequentialArray3(range);
-  for (int i = 0; i < range; i++) {
-    sequentialArray1[i] = start + i;
-    sequentialArray2[i] = start + i;
-    sequentialArray3[i] = start + i;
+  i = 0;
+  while (i < length) {
+    randomArray[i] = start + rand() % range;
+    j = 0;
+    while (j < i || randomArray[j] != randomArray[i]) {
+      if (randomArray[j] == randomArray[i]) {
+        i--;
+      }
+      j++;
+    }
+    i++;
   }
 
-  // Shuffle the sequential arrays
-  random_shuffle(sequentialArray1.begin(), sequentialArray1.end());
-  random_shuffle(sequentialArray2.begin(), sequentialArray2.end());
-  random_shuffle(sequentialArray3.begin(), sequentialArray3.end());
-
-  // Calculate the average of the three arrays
-  vector<int> randomArray(length);
-  for (int i = 0; i < length; i++) {
-    randomArray[i] = (sequentialArray1[i] + sequentialArray2[i] + sequentialArray3[i]) / 3;
-  }
-
-  return randomArray;
+  return randomArray[length];
 }
 
 // Function to generate increasing array
@@ -167,7 +162,7 @@ int main(void) {
 
     // Random Array
     int randomArray[length];
-    randomArrayGenerator(start, length);
+    randomArrayGenerator(start, length, randomArray);
 
     int sortArray[length];
 
