@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <ctime>
-#include <algorithm>
 
 using namespace std;
 
@@ -56,33 +55,22 @@ int selectionSort(int array[], int length) {
   return selectionUsage;
 }
 
-// Function to generate random array and calculate the average of three generated arrays
-vector<int> randomArrayGenerator(int start, int length) {
-  srand(time(NULL));
-  int range = length - start + 1;
+// Function to generate an ordered array and shuffle it
+void randomArrayGenerator(int start, int length, int randomArray[]) {
+    srand(time(NULL));
 
-  // Create three sequential arrays
-  vector<int> sequentialArray1(range);
-  vector<int> sequentialArray2(range);
-  vector<int> sequentialArray3(range);
-  for (int i = 0; i < range; i++) {
-    sequentialArray1[i] = start + i;
-    sequentialArray2[i] = start + i;
-    sequentialArray3[i] = start + i;
-  }
+    // generate a sort array
+    for (int i = 0; i < length; i++) {
+        randomArray[i] = start + i;
+    }
 
-  // Shuffle the sequential arrays
-  random_shuffle(sequentialArray1.begin(), sequentialArray1.end());
-  random_shuffle(sequentialArray2.begin(), sequentialArray2.end());
-  random_shuffle(sequentialArray3.begin(), sequentialArray3.end());
-
-  // Calculate the average of the three arrays
-  vector<int> randomArray(length);
-  for (int i = 0; i < length; i++) {
-    randomArray[i] = (sequentialArray1[i] + sequentialArray2[i] + sequentialArray3[i]) / 3;
-  }
-
-  return randomArray;
+    // shuffle array
+    for (int i = length - 1; i > 0; i--) {
+      int j = rand() % (i + 1);
+      int temp = randomArray[i];
+      randomArray[i] = randomArray[j];
+      randomArray[j] = temp;
+    }
 }
 
 // Function to generate increasing array
@@ -139,7 +127,7 @@ void saveResultsToFile(const string& filename, const int sizes[], const int rand
 int main(void) {
   const int start = 100;
   const int end = 10000;
-  const int step = 200;
+  const int step = 100;
   const int numSizes = (end - start) / step + 1;
 
   int sizes[numSizes];
@@ -167,7 +155,7 @@ int main(void) {
 
     // Random Array
     int randomArray[length];
-    randomArrayGenerator(start, length);
+    randomArrayGenerator(start, length, randomArray);
 
     int sortArray[length];
 

@@ -73,6 +73,9 @@ def main():
 
     # Adjust subplots spacing
     plt.tight_layout()
+
+    # Show the merge graph
+    plt.show()
    
     
     # Plot the graphics
