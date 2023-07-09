@@ -26,15 +26,18 @@ class Canibal:
 class PorcaoComida:
     def __init__(self):
         self.comida = False
+        self.lock = threading.Lock()
 
     def is_comida(self):
         return self.comida
 
     def pegar(self):
+        self.lock.acquire()
         self.comida = True
 
     def liberar(self):
         self.comida = False
+        self.lock.release()
 
 # Criação das porções de comida
 porcoes_comida = [PorcaoComida() for _ in range(5)]
@@ -121,5 +124,18 @@ def atualizar_interface():
 thread_interface = threading.Thread(target=atualizar_interface)
 thread_interface.daemon = True
 thread_interface.start()
+
+# Função para induzir o deadlock
+def induzir_deadlock():
+    for i in range(len(canibais)):
+        canibal_atual = canibais[i]
+        canibal_proximo = canibais[(i + 1) % len(canibais)]
+        canibal_atual.porcao_direita.pegar()  # Tenta adquirir a porção de comida à direita
+        time.sleep(0.1)  # Pequena espera para aumentar a chance de deadlock
+        canibal_proximo.porcao_esquerda.pegar()  # Tenta adquirir a porção de comida à esquerda
+
+# Botão para induzir o deadlock
+botao_deadlock = tk.Button(root, text="Induzir Deadlock", command=induzir_deadlock)
+botao_deadlock.pack()
 
 root.mainloop()
