@@ -3,9 +3,9 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-#define N 5
-#define MAX_CANIBALS 10
-#define CYCLES 3
+#define N 50
+#define MAX_CANIBALS 100
+#define CYCLES 5
 
 typedef struct {
     int num_canibals;
@@ -88,7 +88,8 @@ void write_data(const char* filename, ExperimentResult** results, int num_result
     }
 
     for (int i = 0; i < num_results; i++) {
-        fprintf(file, "%d canibal, %d, %d, %.3f\n", results[i]->num_canibals, results[i]->count_mutex, results[i]->count_semaphore, results[i]->wait_time);
+        //fprintf(file, "%d canibal, %d, %d, %.3f\n", results[i]->num_canibals, results[i]->count_mutex, results[i]->count_semaphore, results[i]->wait_time);
+        fprintf(file, "%d, %d, %d, %.3f\n", results[i]->num_canibals, results[i]->count_mutex, results[i]->count_semaphore, results[i]->wait_time);
     }
 
     fclose(file);
