@@ -110,6 +110,6 @@ def simulate_dinner(num_cannibals, cycles):
     plt.show()
 
 # Example usage with n cannibals and n cycles
-num_cannibals = 5
-cycles = 2
+num_cannibals = 3
+cycles = 3
 simulate_dinner(num_cannibals, cycles)

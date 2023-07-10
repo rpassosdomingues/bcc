@@ -15,6 +15,15 @@ plt.ylabel('Wait Time of (n-1) Cannibals')
 plt.title('Number of Cannibals vs. Wait Time of (n-1) Cannibals')
 plt.show()
 
+# Histogram: Number of cannibals vs. Wait time of (n-1) cannibals
+plt.figure(figsize=(8, 6))
+plt.hist(data[column_names[3]], bins=10, color='red')  # Substitui plt.scatter() por plt.hist()
+plt.xlabel('Wait Time of (n-1) Cannibals')
+plt.ylabel('Frequency')
+plt.title('Histogram of Wait Time of (n-1) Cannibals')
+plt.show()
+
+
 # Scatter plot: Number of cannibals vs. Mutex usage
 plt.figure(figsize=(8, 6))
 plt.scatter(data[column_names[0]], data[column_names[1]])
@@ -39,6 +48,7 @@ plt.xlabel('Usage')
 plt.ylabel('Frequency')
 plt.title('Mutex and Semaphore Usage Histograms')
 plt.legend()
+
 
 plt.tight_layout()
 plt.show()
