@@ -5,8 +5,8 @@
 #include <unistd.h>
 #include <time.h>
 
-#define N 50
-#define MAX_CANIBALS 100
+#define N 10
+#define MAX_CANIBALS 10
 
 typedef struct {
     int num_canibals;
@@ -90,7 +90,7 @@ void write_data(const char* filename, ExperimentResult** results, int num_result
     }
 
     for (int i = 0; i < num_results; i++) {
-        fprintf(file, "%d canibal, %d, %d, %.3f\n", results[i]->num_canibals, results[i]->count_mutex, results[i]->count_semaphore, results[i]->wait_time);
+        fprintf(file, "%d, %d, %d, %.3f\n", results[i]->num_canibals, results[i]->count_mutex, results[i]->count_semaphore, results[i]->wait_time);
     }
 
     fclose(file);
@@ -100,7 +100,7 @@ int main() {
     int start_canibals = 1;
     int end_canibals = 10;
     int increment = 1;
-    int num_cycles = 5; // Define o número de ciclos
+    int num_cycles = 3; // Define o número de ciclos
 
     pthread_t canibals[MAX_CANIBALS];
     pthread_t cozinheiro_thread;
