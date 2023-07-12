@@ -57,19 +57,17 @@ int selectionSort(int array[], int length) {
 
 // Function to generate random array
 void randomArrayGenerator(int start, int length, int randomArray[]) {
-  
   srand(time(NULL));
   
-  int i,j;
   int range = length - start + 1;
-
-  i = 0;
+  int i = 0;
   while (i < length) {
     randomArray[i] = start + rand() % range;
-    j = 0;
-    while (j < i || randomArray[j] != randomArray[i]) {
+    int j = 0;
+    while (j < i) {
       if (randomArray[j] == randomArray[i]) {
         i--;
+        break;
       }
       j++;
     }
@@ -88,13 +86,6 @@ void increasingArrayGenerator(int array[], int start, int length) {
 void decreasingArrayGenerator(int array[], int start, int length) {
   for (int i = 0; i < length; i++) {
     array[i] = start + length - i - 1;
-  }
-}
-
-// Function to copy the elements of one array to another
-void copyArray(int source[], int destination[], int length) {
-  for (int i = 0; i < length; i++) {
-    destination[i] = source[i];
   }
 }
 
@@ -161,35 +152,26 @@ int main(void) {
     int randomArray[length];
     randomArrayGenerator(start, length, randomArray);
 
-    int sortArray[length];
-
     // Bubble Sort
-    copyArray(randomArray, sortArray, length);
-    randomBubbleUsages[i] = bubbleSort(sortArray, length);
+    randomBubbleUsages[i] = bubbleSort(randomArray, length);
 
     // Insertion Sort
-    copyArray(randomArray, sortArray, length);
-    randomInsertionUsages[i] = insertionSort(sortArray, length);
+    randomInsertionUsages[i] = insertionSort(randomArray, length);
 
     // Selection Sort
-    copyArray(randomArray, sortArray, length);
-    randomSelectionUsages[i] = selectionSort(sortArray, length);
+    randomSelectionUsages[i] = selectionSort(randomArray, length);
 
     // Increasing Array
-    increasingArrayGenerator(sortArray, start, length);
-    increasingBubbleUsages[i] = bubbleSort(sortArray, length);
-    copyArray(randomArray, sortArray, length);
-    increasingInsertionUsages[i] = insertionSort(sortArray, length);
-    copyArray(randomArray, sortArray, length);
-    increasingSelectionUsages[i] = selectionSort(sortArray, length);
+    increasingArrayGenerator(randomArray, start, length);
+    increasingBubbleUsages[i] = bubbleSort(randomArray, length);
+    increasingInsertionUsages[i] = insertionSort(randomArray, length);
+    increasingSelectionUsages[i] = selectionSort(randomArray, length);
 
     // Decreasing Array
-    decreasingArrayGenerator(sortArray, start, length);
-    decreasingBubbleUsages[i] = bubbleSort(sortArray, length);
-    copyArray(randomArray, sortArray, length);
-    decreasingInsertionUsages[i] = insertionSort(sortArray, length);
-    copyArray(randomArray, sortArray, length);
-    decreasingSelectionUsages[i] = selectionSort(sortArray, length);
+    decreasingArrayGenerator(randomArray, start, length);
+    decreasingBubbleUsages[i] = bubbleSort(randomArray, length);
+    decreasingInsertionUsages[i] = insertionSort(randomArray, length);
+    decreasingSelectionUsages[i] = selectionSort(randomArray, length);
   }
 
   // Save results to a file

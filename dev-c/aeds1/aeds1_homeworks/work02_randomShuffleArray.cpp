@@ -86,8 +86,12 @@ void decreasingArrayGenerator(int array[], int start, int length) {
     array[i] = start + length - i - 1;
   }
 }
-
-// Function to copy the elements of one array to another
+ 
+/*
+This function copy the elements of one array to another ensures that each sorting
+algorithm operates on a separate copy of the original matrix, avoiding interference
+between algorithm runs
+*/
 void copyArray(int source[], int destination[], int length) {
   for (int i = 0; i < length; i++) {
     destination[i] = source[i];
