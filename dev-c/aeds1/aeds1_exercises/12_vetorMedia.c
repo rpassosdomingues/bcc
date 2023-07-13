@@ -1,9 +1,9 @@
 /*
 Exercício 1: Fazer um algoritmo que leia um vetor de 50 elementos de valores inteiros e com
 os valores do vetor calcule e escreva:
-  - O maior e menor valor do vetor
-  - A média dos valores no vetor
-  - A quantidade de valores acima e abaixo da média
+  - O maior e menor valor do vetor
+  - A média dos valores no vetor
+  - A quantidade de valores acima e abaixo da média
 */
 
 #include <stdio.h>
